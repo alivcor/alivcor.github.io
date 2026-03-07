@@ -17,6 +17,16 @@
       background: #f0eeeb;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      position: relative;
+    }
+    /* Subtle golden hour wash from the right */
+    body::after {
+      content: '';
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: 40%;
+      background: linear-gradient(to left, rgba(218, 180, 120, 0.06), transparent);
+      pointer-events: none;
+      z-index: 0;
     }
 
     ::selection { background: #4a6fa5; color: #f0eeeb; }
@@ -136,6 +146,16 @@
       width: 100%; aspect-ratio: 3/2;
       object-fit: cover;
       display: block;
+      filter: saturate(0.15) sepia(0.25) brightness(1.05) contrast(0.9);
+      transition: filter 0.5s ease, transform 0.5s ease;
+      cursor: pointer;
+    }
+    .visual-grid img:hover {
+      filter: saturate(1) sepia(0) brightness(1) contrast(1);
+      transform: scale(1.02);
+    }
+    .visual-grid a {
+      border: none; display: block; overflow: hidden;
     }
     .visual-note {
       margin-top: 2rem;
@@ -145,13 +165,14 @@
     /* Divider — botanical illustration */
     .ornament {
       display: flex; justify-content: center; align-items: center;
-      padding: 1rem 3rem;
+      padding: 2rem 3rem;
     }
     .ornament img {
-      height: 80px; width: auto;
-      opacity: 0.13;
+      height: 200px; width: auto;
+      opacity: 0.14;
       mix-blend-mode: multiply;
       pointer-events: none;
+      filter: sepia(0.2) saturate(0.6);
     }
 
     /* Publications */
@@ -183,8 +204,8 @@
       .reading-list { grid-template-columns: 1fr; gap: 2.5rem; }
       .visual-grid { grid-template-columns: 1fr 1fr; }
       footer { padding: 2rem 1.5rem; }
-      .ornament { padding: 1rem 1.5rem; }
-      .ornament img { height: 60px; }
+      .ornament { padding: 1.5rem 1.5rem; }
+      .ornament img { height: 140px; }
     }
   </style>
 </head>
@@ -439,14 +460,14 @@
   <div class="visual-section" id="observations">
     <div class="section-label">Observations</div>
     <div class="visual-grid">
-      <img src="assets/190069FD-DC7B-4118-8F07-04B0C645D918.JPG" alt="Observation">
-      <img src="assets/5A7CF3CD-DBDA-4537-BB18-4C19B98D8551.JPG" alt="Observation">
-      <img src="assets/9801F3FA-0A15-4A16-A87E-5E0BDBCA9C42.JPG" alt="Observation">
-      <img src="assets/IMG_0506.JPG" alt="Observation">
-      <img src="assets/IMG_6045.JPG" alt="Observation">
-      <img src="assets/IMG_6211.JPG" alt="Observation">
-      <img src="assets/IMG_7922.JPG" alt="Observation">
-      <img src="assets/IMG_8990.jpg" alt="Observation">
+      <a href="assets/190069FD-DC7B-4118-8F07-04B0C645D918.JPG" target="_blank"><img src="assets/190069FD-DC7B-4118-8F07-04B0C645D918.JPG" alt="Observation"></a>
+      <a href="assets/5A7CF3CD-DBDA-4537-BB18-4C19B98D8551.JPG" target="_blank"><img src="assets/5A7CF3CD-DBDA-4537-BB18-4C19B98D8551.JPG" alt="Observation"></a>
+      <a href="assets/9801F3FA-0A15-4A16-A87E-5E0BDBCA9C42.JPG" target="_blank"><img src="assets/9801F3FA-0A15-4A16-A87E-5E0BDBCA9C42.JPG" alt="Observation"></a>
+      <a href="assets/IMG_0506.JPG" target="_blank"><img src="assets/IMG_0506.JPG" alt="Observation"></a>
+      <a href="assets/IMG_6045.JPG" target="_blank"><img src="assets/IMG_6045.JPG" alt="Observation"></a>
+      <a href="assets/IMG_6211.JPG" target="_blank"><img src="assets/IMG_6211.JPG" alt="Observation"></a>
+      <a href="assets/IMG_7922.JPG" target="_blank"><img src="assets/IMG_7922.JPG" alt="Observation"></a>
+      <a href="assets/IMG_8990.jpg" target="_blank"><img src="assets/IMG_8990.jpg" alt="Observation"></a>
     </div>
     <p class="visual-note">Places, light, and things that caught my attention.</p>
   </div>
