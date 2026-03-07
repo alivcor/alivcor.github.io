@@ -156,6 +156,35 @@
       font-weight: 400; letter-spacing: 0.05em;
     }
 
+    /* Botanical accents */
+    .botanical {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.12;
+    }
+    .hero { position: relative; overflow: hidden; }
+    .hero .botanical-hero-right {
+      position: absolute;
+      right: -40px; top: 15%;
+      width: 280px; height: auto;
+      opacity: 0.08;
+      transform: rotate(-12deg);
+    }
+    .botanical-section-left {
+      position: relative;
+    }
+    .botanical-section-left .botanical-accent {
+      position: absolute;
+      left: -60px; top: 0;
+      width: 120px; height: auto;
+      opacity: 0.09;
+    }
+    .footer-botanical {
+      display: flex; justify-content: center;
+      padding: 1rem 0 0;
+      opacity: 0.1;
+    }
+
     footer {
       padding: 2rem 3rem;
       font-family: 'Inter', sans-serif; font-size: 0.65rem;
@@ -194,6 +223,26 @@
     <p class="subtitle">Software Engineer · AI Research · New York</p>
     <h1>Abhinandan<br>Dubey</h1>
     <p class="tagline">graphs, language models, and the occasional painting</p>
+    <!-- Olive branch accent -->
+    <svg class="botanical-hero-right" viewBox="0 0 300 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M150 20 C148 80, 140 160, 135 240 C130 320, 142 400, 150 480" stroke="#4a6fa5" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M135 80 C110 60, 85 55, 70 65 C60 72, 65 85, 80 88 C95 91, 115 82, 135 80Z" fill="#4a6fa5" opacity="0.5"/>
+      <path d="M140 80 C155 55, 175 45, 195 50 C210 55, 212 70, 200 78 C185 86, 160 82, 140 80Z" fill="#4a6fa5" opacity="0.4"/>
+      <path d="M138 140 C115 125, 88 122, 72 132 C60 140, 62 155, 78 160 C94 165, 118 152, 138 140Z" fill="#4a6fa5" opacity="0.45"/>
+      <path d="M142 140 C160 120, 185 112, 205 118 C220 124, 220 140, 206 148 C190 156, 162 150, 142 140Z" fill="#4a6fa5" opacity="0.35"/>
+      <path d="M136 210 C112 198, 82 200, 68 212 C58 222, 62 236, 78 238 C96 240, 118 228, 136 210Z" fill="#4a6fa5" opacity="0.4"/>
+      <path d="M140 210 C162 195, 190 190, 208 200 C220 208, 216 224, 200 228 C182 232, 158 222, 140 210Z" fill="#4a6fa5" opacity="0.35"/>
+      <path d="M134 290 C108 280, 80 285, 68 298 C60 308, 66 320, 82 320 C100 320, 120 306, 134 290Z" fill="#4a6fa5" opacity="0.38"/>
+      <path d="M138 290 C158 275, 182 272, 198 282 C210 290, 206 305, 190 308 C172 311, 152 302, 138 290Z" fill="#4a6fa5" opacity="0.32"/>
+      <path d="M132 360 C110 352, 85 358, 74 370 C66 380, 72 392, 86 392 C102 392, 120 378, 132 360Z" fill="#4a6fa5" opacity="0.35"/>
+      <path d="M138 360 C155 348, 178 346, 192 356 C202 364, 198 378, 184 380 C168 382, 150 372, 138 360Z" fill="#4a6fa5" opacity="0.3"/>
+      <!-- Olives -->
+      <ellipse cx="72" cy="88" rx="6" ry="8" fill="#4a6fa5" opacity="0.55" transform="rotate(-15 72 88)"/>
+      <ellipse cx="200" cy="148" rx="5" ry="7" fill="#4a6fa5" opacity="0.45" transform="rotate(10 200 148)"/>
+      <ellipse cx="78" cy="238" rx="6" ry="8" fill="#4a6fa5" opacity="0.5" transform="rotate(-20 78 238)"/>
+      <ellipse cx="190" cy="308" rx="5" ry="7" fill="#4a6fa5" opacity="0.4" transform="rotate(5 190 308)"/>
+      <ellipse cx="86" cy="392" rx="5" ry="7" fill="#4a6fa5" opacity="0.42" transform="rotate(-10 86 392)"/>
+    </svg>
   </div>
 
   <section id="about" class="about">
@@ -315,8 +364,24 @@
 
   <div class="ornament"></div>
 
-  <section id="reading">
+  <section id="reading" style="position: relative; overflow: visible;">
     <div class="section-label">Reading</div>
+    <!-- Citrus branch accent -->
+    <svg style="position: absolute; right: -80px; top: 40px; width: 200px; opacity: 0.07; transform: rotate(15deg);" viewBox="0 0 200 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 10 C98 60, 95 120, 92 180 C89 240, 95 280, 100 310" stroke="#4a6fa5" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path d="M95 60 C75 45, 50 42, 38 52 C30 60, 35 72, 50 74 C65 76, 82 68, 95 60Z" fill="#4a6fa5" opacity="0.6"/>
+      <path d="M98 60 C115 42, 138 38, 155 48 C165 56, 160 70, 145 72 C128 74, 110 68, 98 60Z" fill="#4a6fa5" opacity="0.5"/>
+      <path d="M94 130 C72 118, 48 120, 38 132 C30 142, 36 154, 52 154 C68 154, 84 142, 94 130Z" fill="#4a6fa5" opacity="0.5"/>
+      <path d="M96 130 C118 115, 142 112, 158 122 C168 130, 162 145, 146 148 C130 151, 110 140, 96 130Z" fill="#4a6fa5" opacity="0.45"/>
+      <path d="M92 210 C70 200, 46 205, 36 218 C28 228, 35 240, 50 240 C66 240, 82 228, 92 210Z" fill="#4a6fa5" opacity="0.45"/>
+      <!-- Oranges/citrus fruits -->
+      <circle cx="52" cy="72" r="12" fill="#4a6fa5" opacity="0.2" stroke="#4a6fa5" stroke-width="0.8" opacity="0.4"/>
+      <circle cx="148" cy="146" r="14" fill="#4a6fa5" opacity="0.18" stroke="#4a6fa5" stroke-width="0.8" opacity="0.35"/>
+      <circle cx="50" cy="238" r="11" fill="#4a6fa5" opacity="0.2" stroke="#4a6fa5" stroke-width="0.8" opacity="0.38"/>
+      <!-- Small star details on citrus -->
+      <path d="M48 68 L52 64 L56 68 L52 72Z" fill="#4a6fa5" opacity="0.15"/>
+      <path d="M144 142 L148 138 L152 142 L148 146Z" fill="#4a6fa5" opacity="0.12"/>
+    </svg>
     <div class="reading-list">
       <div class="book-item">
         <div class="book-title">L'Étranger</div>
@@ -404,8 +469,23 @@
 
   <div class="ornament"></div>
 
-  <section id="parfum" class="about">
+  <section id="parfum" class="about" style="position: relative; overflow: visible;">
     <div class="section-label">Assemblage Parfumée</div>
+    <!-- Small lavender sprig -->
+    <svg style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%) rotate(-8deg); width: 100px; opacity: 0.08;" viewBox="0 0 100 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 190 C50 160, 48 120, 46 80 C44 50, 48 25, 50 10" stroke="#4a6fa5" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="50" cy="15" rx="4" ry="6" fill="#4a6fa5" opacity="0.5"/>
+      <ellipse cx="44" cy="28" rx="4" ry="5" fill="#4a6fa5" opacity="0.45" transform="rotate(-15 44 28)"/>
+      <ellipse cx="56" cy="26" rx="4" ry="5" fill="#4a6fa5" opacity="0.4" transform="rotate(15 56 26)"/>
+      <ellipse cx="42" cy="42" rx="3.5" ry="5" fill="#4a6fa5" opacity="0.4" transform="rotate(-20 42 42)"/>
+      <ellipse cx="58" cy="40" rx="3.5" ry="5" fill="#4a6fa5" opacity="0.35" transform="rotate(20 58 40)"/>
+      <ellipse cx="44" cy="56" rx="3" ry="4.5" fill="#4a6fa5" opacity="0.35" transform="rotate(-15 44 56)"/>
+      <ellipse cx="56" cy="54" rx="3" ry="4.5" fill="#4a6fa5" opacity="0.3" transform="rotate(15 56 54)"/>
+      <path d="M46 100 C32 92, 20 96, 18 106 C16 114, 26 118, 36 112 C42 108, 46 104, 46 100Z" fill="#4a6fa5" opacity="0.4"/>
+      <path d="M48 100 C60 90, 72 92, 74 102 C76 110, 66 114, 56 110 C50 106, 48 104, 48 100Z" fill="#4a6fa5" opacity="0.35"/>
+      <path d="M46 140 C34 134, 24 138, 22 146 C20 152, 28 156, 38 150 C42 148, 46 144, 46 140Z" fill="#4a6fa5" opacity="0.35"/>
+      <path d="M48 140 C58 132, 68 134, 70 142 C72 148, 64 152, 54 148 C50 146, 48 144, 48 140Z" fill="#4a6fa5" opacity="0.3"/>
+    </svg>
     <p>Notes on scent, memory, and the small rituals of wearing something well. Bilingual reviews of fragrances encountered in shops, on skin, and sometimes only in passing. Written in French and English, because some things lose themselves in translation.</p>
     <p style="margin-top: 1.5rem;"><a href="https://assemblageparfume.substack.com/">Read on Substack</a></p>
   </section>
@@ -463,6 +543,19 @@
       <a href="https://github.com/alivcor">GitHub</a>
       <a href="https://abhinandandubey.github.io">Blog</a>
     </div>
+  </div>
+
+  <div class="footer-botanical">
+    <!-- Small herb sprig -->
+    <svg width="80" height="60" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M40 55 C40 45, 38 35, 36 25 C34 15, 38 8, 40 5" stroke="#4a6fa5" stroke-width="1" fill="none" stroke-linecap="round"/>
+      <path d="M37 35 C28 30, 20 32, 18 38 C16 42, 22 45, 30 42 C35 40, 37 37, 37 35Z" fill="#4a6fa5" opacity="0.5"/>
+      <path d="M39 35 C48 28, 56 28, 58 34 C60 38, 54 42, 46 40 C41 38, 39 37, 39 35Z" fill="#4a6fa5" opacity="0.4"/>
+      <path d="M36 22 C28 18, 22 20, 20 25 C18 28, 24 30, 30 28 C34 26, 36 24, 36 22Z" fill="#4a6fa5" opacity="0.4"/>
+      <path d="M38 22 C46 16, 54 16, 56 22 C58 26, 52 28, 44 26 C40 24, 38 23, 38 22Z" fill="#4a6fa5" opacity="0.35"/>
+      <path d="M37 12 C32 8, 26 8, 24 12 C22 15, 28 17, 32 15 C35 14, 37 13, 37 12Z" fill="#4a6fa5" opacity="0.35"/>
+      <path d="M39 12 C44 6, 50 5, 52 10 C54 14, 48 16, 44 14 C41 13, 39 12, 39 12Z" fill="#4a6fa5" opacity="0.3"/>
+    </svg>
   </div>
 
   <footer>© 2026 Abhinandan Dubey</footer>
