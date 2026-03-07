@@ -13,28 +13,29 @@
 
     body {
       font-family: 'Cormorant Garamond', 'Georgia', serif;
-      color: #1a1a1a;
-      background: #faf9f7;
+      color: #2c2824;
+      background: #f5f0e8;
       -webkit-font-smoothing: antialiased;
     }
 
-    ::selection { background: #1a1a1a; color: #faf9f7; }
+    ::selection { background: #2c2824; color: #f5f0e8; }
 
     a {
       color: inherit; text-decoration: none;
-      border-bottom: 1px solid #c0bdb8;
+      border-bottom: 1px solid #c4b9a8;
       transition: border-color 0.3s ease;
     }
-    a:hover { border-color: #1a1a1a; }
+    a:hover { border-color: #2c2824; }
 
     /* Nav */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 2rem 3rem;
       display: flex; justify-content: flex-end; align-items: center;
-      background: rgba(250, 249, 247, 0.9);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(245, 240, 232, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 185, 168, 0.3);
     }
     nav .links {
       display: flex; gap: 2.5rem;
@@ -53,13 +54,14 @@
     .hero h1 {
       font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400;
       line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 2rem;
+      color: #2c2824;
     }
     .hero .subtitle {
       font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 400;
-      letter-spacing: 0.15em; text-transform: uppercase; color: #777; margin-bottom: 1rem;
+      letter-spacing: 0.15em; text-transform: uppercase; color: #8a7e6e; margin-bottom: 1rem;
     }
     .hero .tagline {
-      font-style: italic; font-size: 1.25rem; color: #555; font-weight: 400;
+      font-style: italic; font-size: 1.25rem; color: #6b6054; font-weight: 400;
     }
 
     /* Sections */
@@ -67,75 +69,107 @@
     section.full-width { max-width: 100%; }
     .section-label {
       font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 500;
-      letter-spacing: 0.2em; text-transform: uppercase; color: #888; margin-bottom: 3rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #9a8e7d;
+      margin-bottom: 3rem;
     }
 
     /* About */
-    .about p { font-size: 1.35rem; line-height: 1.8; font-weight: 400; max-width: 680px; }
+    .about p { font-size: 1.35rem; line-height: 1.8; font-weight: 400; max-width: 680px; color: #3d362f; }
     .about p + p { margin-top: 1.5rem; }
 
     /* Experience */
     .experience-item { margin-bottom: 4rem; }
     .experience-item .period {
       font-family: 'Inter', sans-serif; font-size: 0.7rem;
-      letter-spacing: 0.15em; text-transform: uppercase; color: #888;
+      letter-spacing: 0.15em; text-transform: uppercase; color: #9a8e7d;
       font-weight: 400; margin-bottom: 0.5rem;
     }
-    .experience-item h3 { font-size: 1.6rem; font-weight: 500; margin-bottom: 0.3rem; }
-    .experience-item .role { font-style: italic; font-size: 1.1rem; color: #555; font-weight: 400; }
+    .experience-item h3 { font-size: 1.6rem; font-weight: 500; margin-bottom: 0.3rem; color: #2c2824; }
+    .experience-item .role { font-style: italic; font-size: 1.1rem; color: #6b6054; font-weight: 400; }
 
     /* Education */
     .education-item { margin-bottom: 2.5rem; }
-    .education-item h3 { font-size: 1.4rem; font-weight: 500; margin-bottom: 0.2rem; }
-    .education-item .degree { font-size: 1.1rem; font-weight: 400; color: #444; }
-    .education-item .detail { font-style: italic; font-size: 1rem; color: #777; font-weight: 400; margin-top: 0.3rem; }
+    .education-item h3 { font-size: 1.4rem; font-weight: 500; margin-bottom: 0.2rem; color: #2c2824; }
+    .education-item .degree { font-size: 1.1rem; font-weight: 400; color: #4a4239; }
+    .education-item .detail { font-style: italic; font-size: 1rem; color: #8a7e6e; font-weight: 400; margin-top: 0.3rem; }
 
     /* Projects */
     .projects-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 4rem;
     }
+    .project-card {
+      padding: 1.8rem;
+      background: rgba(255, 252, 247, 0.5);
+      border: 1px solid rgba(196, 185, 168, 0.35);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      border-color: rgba(196, 185, 168, 0.7);
+      box-shadow: 0 2px 20px rgba(44, 40, 36, 0.04);
+    }
     .project-card .project-label {
       font-family: 'Inter', sans-serif; font-size: 0.6rem;
-      letter-spacing: 0.15em; text-transform: uppercase; color: #aaa;
+      letter-spacing: 0.15em; text-transform: uppercase; color: #b0a594;
       font-weight: 400; margin-bottom: 0.6rem;
     }
-    .project-card h3 { font-size: 1.5rem; font-weight: 500; margin-bottom: 0.4rem; }
+    .project-card h3 { font-size: 1.5rem; font-weight: 500; margin-bottom: 0.4rem; color: #2c2824; }
     .project-card h3 a { border-bottom: 1px solid transparent; }
-    .project-card h3 a:hover { border-color: #1a1a1a; }
-    .project-card p { font-size: 1.05rem; line-height: 1.7; font-weight: 400; color: #555; }
+    .project-card h3 a:hover { border-color: #2c2824; }
+    .project-card p { font-size: 1.05rem; line-height: 1.7; font-weight: 400; color: #6b6054; }
 
     /* Reading */
     .reading-list {
       display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 4rem;
     }
     .book-item { margin-bottom: 0.5rem; }
-    .book-item .book-title { font-size: 1.15rem; font-weight: 500; }
-    .book-item .book-author { font-size: 0.95rem; font-weight: 400; color: #777; font-style: italic; }
+    .book-item .book-title { font-size: 1.15rem; font-weight: 500; color: #2c2824; }
+    .book-item .book-author { font-size: 0.95rem; font-weight: 400; color: #8a7e6e; font-style: italic; }
 
-    /* Visual sections (observations + scientific illustrations) */
+    /* Visual sections */
     .visual-section { padding: 6rem 3rem; max-width: 1100px; }
     .visual-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
     }
     .visual-grid .placeholder {
       aspect-ratio: 3/2;
-      background: #eae8e4;
+      background: #ece5d8;
+      border: 1px solid rgba(196, 185, 168, 0.3);
       display: flex; align-items: center; justify-content: center;
       font-family: 'Inter', sans-serif; font-size: 0.7rem;
-      color: #bbb; letter-spacing: 0.1em; text-transform: uppercase;
+      color: #b0a594; letter-spacing: 0.1em; text-transform: uppercase;
     }
     .visual-note {
       margin-top: 2rem;
-      font-size: 1.1rem; font-style: italic; color: #888; font-weight: 400;
+      font-size: 1.1rem; font-style: italic; color: #8a7e6e; font-weight: 400;
     }
 
     /* Divider */
-    .divider { width: 40px; height: 1px; background: #d0cdc8; margin: 0 3rem; }
+    .divider {
+      display: flex; align-items: center; justify-content: center;
+      padding: 0 3rem; gap: 1rem;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 0 0 20px; height: 1px; background: #c4b9a8;
+    }
+    .divider::before { flex: 0 0 20px; }
+    .divider::after { flex: 0 0 20px; }
+
+    /* Ornamental divider */
+    .ornament {
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem 3rem; gap: 1.2rem; color: #c4b9a8;
+    }
+    .ornament::before, .ornament::after {
+      content: ''; width: 40px; height: 1px; background: #c4b9a8;
+    }
+    .ornament .fleuron {
+      font-size: 0.9rem; line-height: 1; opacity: 0.6;
+    }
 
     /* Publications */
     .pub-item { margin-bottom: 2.5rem; }
-    .pub-item h3 { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.3rem; }
-    .pub-item .venue { font-style: italic; font-size: 1rem; color: #777; font-weight: 400; }
+    .pub-item h3 { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.3rem; color: #2c2824; }
+    .pub-item .venue { font-style: italic; font-size: 1rem; color: #8a7e6e; font-weight: 400; }
 
     /* Contact */
     .contact { padding: 6rem 3rem 4rem; max-width: 800px; }
@@ -148,7 +182,8 @@
     footer {
       padding: 2rem 3rem;
       font-family: 'Inter', sans-serif; font-size: 0.65rem;
-      color: #aaa; letter-spacing: 0.1em; text-transform: uppercase;
+      color: #b0a594; letter-spacing: 0.1em; text-transform: uppercase;
+      border-top: 1px solid rgba(196, 185, 168, 0.3);
     }
 
     /* Responsive */
@@ -160,7 +195,8 @@
       .projects-grid, .reading-list { grid-template-columns: 1fr; gap: 2.5rem; }
       .visual-grid { grid-template-columns: 1fr 1fr; }
       footer { padding: 2rem 1.5rem; }
-      .divider { margin: 0 1.5rem; }
+      .divider, .ornament { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .project-card { padding: 1.4rem; }
     }
   </style>
 </head>
@@ -189,7 +225,7 @@
     <p>Outside of work I build whatever catches my attention. Lately that's been an AI wardrobe app, a tool that harvests art from museum APIs, and a <a href="https://abhinandandubey.github.io">blog</a> I write when something is worth writing about. I've been studying French for a few years now, and I read less than I probably should.</p>
   </section>
 
-  <div class="divider"></div>
+  <div class="ornament"><span class="fleuron">✦</span></div>
 
   <section id="work">
     <div class="section-label">Experience</div>
@@ -219,7 +255,7 @@
     </div>
   </section>
 
-  <div class="divider"></div>
+  <div class="ornament"><span class="fleuron">✦</span></div>
 
   <section id="projects">
     <div class="section-label">Projects</div>
@@ -300,7 +336,7 @@
     </div>
   </section>
 
-  <div class="divider"></div>
+  <div class="ornament"><span class="fleuron">✦</span></div>
 
   <section id="reading">
     <div class="section-label">Reading</div>
@@ -389,7 +425,7 @@
     <p class="visual-note">A partial list. Always looking for recommendations.</p>
   </section>
 
-  <div class="divider"></div>
+  <div class="ornament"><span class="fleuron">✦</span></div>
 
   <div class="visual-section" id="sur-papier">
     <div class="section-label">Sur Papier</div>
@@ -401,7 +437,7 @@
     <p class="visual-note">Sketches, paintings, and other things made by hand. More at <a href="https://art.abhinandandubey.com">art.abhinandandubey.com</a></p>
   </div>
 
-  <div class="divider"></div>
+  <div class="ornament"><span class="fleuron">✦</span></div>
 
   <div class="visual-section" id="observations">
     <div class="section-label">Observations</div>
@@ -416,7 +452,7 @@
     <p class="visual-note">Places, light, and things that caught my attention.</p>
   </div>
 
-  <div class="divider"></div>
+  <div class="ornament"><span class="fleuron">✦</span></div>
 
   <section id="research">
     <div class="section-label">Patents &amp; Publications</div>
