@@ -18,14 +18,14 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    ::selection { background: #4a5568; color: #f2f1ee; }
+    ::selection { background: #4a6fa5; color: #f2f1ee; }
 
     a {
-      color: inherit; text-decoration: none;
-      border-bottom: 1px solid #a8adb8;
+      color: #4a6fa5; text-decoration: none;
+      border-bottom: 1px solid rgba(74, 111, 165, 0.3);
       transition: border-color 0.3s ease;
     }
-    a:hover { border-color: #2d3142; }
+    a:hover { border-color: #4a6fa5; }
 
     /* Nav */
     nav {
@@ -35,14 +35,14 @@
       background: rgba(242, 241, 238, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(160, 168, 184, 0.2);
+      border-bottom: 1px solid rgba(160, 168, 184, 0.15);
     }
     nav .links {
       display: flex; gap: 2.5rem;
       font-family: 'Inter', sans-serif; font-size: 0.75rem;
       font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
     }
-    nav .links a { border: none; opacity: 0.45; transition: opacity 0.3s ease; }
+    nav .links a { border: none; color: #2d3142; opacity: 0.45; transition: opacity 0.3s ease; }
     nav .links a:hover { opacity: 1; }
 
     /* Hero */
@@ -57,7 +57,7 @@
     }
     .hero .subtitle {
       font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 400;
-      letter-spacing: 0.15em; text-transform: uppercase; color: #6b7394; margin-bottom: 1rem;
+      letter-spacing: 0.15em; text-transform: uppercase; color: #4a6fa5; margin-bottom: 1rem;
     }
     .hero .tagline {
       font-style: italic; font-size: 1.25rem; color: #5a6178; font-weight: 400;
@@ -68,13 +68,14 @@
     section.full-width { max-width: 100%; }
     .section-label {
       font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 500;
-      letter-spacing: 0.2em; text-transform: uppercase; color: #7c839a;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #4a6fa5;
       margin-bottom: 3rem;
     }
 
     /* About */
     .about p { font-size: 1.35rem; line-height: 1.8; font-weight: 400; max-width: 680px; color: #3a3f52; }
     .about p + p { margin-top: 1.5rem; }
+    .about a { color: #4a6fa5; }
 
     /* Experience */
     .experience-item { margin-bottom: 4rem; }
@@ -92,32 +93,23 @@
     .education-item .degree { font-size: 1.1rem; font-weight: 400; color: #454a5e; }
     .education-item .detail { font-style: italic; font-size: 1rem; color: #6b7394; font-weight: 400; margin-top: 0.3rem; }
 
-    /* Projects — editorial grid with thin rules, no boxes */
-    .projects-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-      border-top: 1px solid rgba(160, 168, 184, 0.3);
+    /* Projects — catalog list */
+    .projects-list { max-width: 720px; }
+    .project-item {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(74, 111, 165, 0.12);
     }
-    .project-card {
-      padding: 2.2rem 1.5rem 2.2rem 0;
-      border-bottom: 1px solid rgba(160, 168, 184, 0.3);
-      transition: background 0.3s ease;
-    }
-    .project-card:nth-child(odd) {
-      padding-right: 2.5rem;
-      border-right: 1px solid rgba(160, 168, 184, 0.3);
-    }
-    .project-card:nth-child(even) {
-      padding-left: 2.5rem;
-    }
-    .project-card .project-label {
+    .project-item:first-child { padding-top: 0; }
+    .project-item:last-child { border-bottom: none; }
+    .project-item .project-label {
       font-family: 'Inter', sans-serif; font-size: 0.6rem;
-      letter-spacing: 0.15em; text-transform: uppercase; color: #8e94a8;
-      font-weight: 400; margin-bottom: 0.6rem;
+      letter-spacing: 0.15em; text-transform: uppercase; color: #7c839a;
+      font-weight: 400; margin-bottom: 0.5rem;
     }
-    .project-card h3 { font-size: 1.5rem; font-weight: 500; margin-bottom: 0.4rem; }
-    .project-card h3 a { border-bottom: 1px solid transparent; }
-    .project-card h3 a:hover { border-color: #2d3142; }
-    .project-card p { font-size: 1.05rem; line-height: 1.7; font-weight: 400; color: #5a6178; }
+    .project-item h3 { font-size: 1.6rem; font-weight: 500; margin-bottom: 0.5rem; }
+    .project-item h3 a { color: #2d3142; border-bottom: 1px solid rgba(74, 111, 165, 0.25); }
+    .project-item h3 a:hover { border-color: #4a6fa5; color: #4a6fa5; }
+    .project-item p { font-size: 1.1rem; line-height: 1.75; font-weight: 400; color: #5a6178; max-width: 600px; }
 
     /* Reading */
     .reading-list {
@@ -134,8 +126,7 @@
     }
     .visual-grid .placeholder {
       aspect-ratio: 3/2;
-      background: #e6e7eb;
-      border: 1px solid rgba(160, 168, 184, 0.2);
+      background: #e8e9ed;
       display: flex; align-items: center; justify-content: center;
       font-family: 'Inter', sans-serif; font-size: 0.7rem;
       color: #8e94a8; letter-spacing: 0.1em; text-transform: uppercase;
@@ -148,13 +139,13 @@
     /* Ornamental divider */
     .ornament {
       display: flex; align-items: center; justify-content: center;
-      padding: 1.5rem 3rem; gap: 1.2rem; color: #a8adb8;
+      padding: 1.5rem 3rem; gap: 1.2rem; color: #4a6fa5;
     }
     .ornament::before, .ornament::after {
-      content: ''; width: 40px; height: 1px; background: #a8adb8;
+      content: ''; width: 40px; height: 1px; background: rgba(74, 111, 165, 0.25);
     }
     .ornament .fleuron {
-      font-size: 0.7rem; line-height: 1; opacity: 0.45;
+      font-size: 0.7rem; line-height: 1; opacity: 0.4;
     }
 
     /* Publications */
@@ -174,7 +165,7 @@
       padding: 2rem 3rem;
       font-family: 'Inter', sans-serif; font-size: 0.65rem;
       color: #8e94a8; letter-spacing: 0.1em; text-transform: uppercase;
-      border-top: 1px solid rgba(160, 168, 184, 0.2);
+      border-top: 1px solid rgba(74, 111, 165, 0.12);
     }
 
     /* Responsive */
@@ -183,9 +174,6 @@
       nav .links { gap: 1.5rem; font-size: 0.65rem; }
       .hero { padding: 0 1.5rem; }
       section, .contact, .visual-section { padding: 4rem 1.5rem; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .project-card:nth-child(odd) { border-right: none; padding-right: 0; }
-      .project-card:nth-child(even) { padding-left: 0; }
       .reading-list { grid-template-columns: 1fr; gap: 2.5rem; }
       .visual-grid { grid-template-columns: 1fr 1fr; }
       footer { padding: 2rem 1.5rem; }
@@ -253,75 +241,75 @@
 
   <section id="projects">
     <div class="section-label">Projects</div>
-    <div class="projects-grid">
+    <div class="projects-list">
 
-      <div class="project-card">
+      <div class="project-item">
         <div class="project-label">Scala · Spark · Monitoring</div>
         <h3><a href="https://github.com/alivcor/airavat">Airavat</a></h3>
         <p>A metric interceptor and job watchdog for Spark. Collects query plans, tracks disk spill and shuffle, kills resource-hogging jobs before they take down your cluster. Ships with a React UI.</p>
       </div>
 
-      <div class="project-card">
+      <div class="project-item">
         <div class="project-label">Python · Computer Vision · PyPI</div>
         <h3><a href="https://github.com/alivcor/segraph">Segraph</a></h3>
         <p>Builds graphs from SLIC superpixels for CRF-based image segmentation. Published on PyPI. Born out of the cell segmentation research at Stony Brook.</p>
       </div>
 
-      <div class="project-card">
+      <div class="project-item">
         <div class="project-label">Python · NLP · Deep Learning</div>
         <h3><a href="https://github.com/alivcor/aes">DeepScore</a></h3>
         <p>Automated essay scoring using RNNs and feature engineering. Semantic analysis, clause parsing, discourse flow. A two-fold study on grading with minimal training data.</p>
       </div>
 
-      <div class="project-card">
+      <div class="project-item">
         <div class="project-label">Scala · Apache Spark</div>
         <h3><a href="https://github.com/alivcor/SMORK">SMOTE for Spark</a></h3>
         <p>Synthetic Minority Over-sampling Technique implemented for SparkML. Handles class imbalance in large-scale distributed datasets.</p>
       </div>
 
-      <div class="project-card">
+      <div class="project-item">
         <div class="project-label">Python · Museums · Art</div>
         <h3><a href="https://github.com/alivcor/delacroix">Delacroix</a></h3>
         <p>Harvests openly licensed artwork from the Louvre, the Met, the Art Institute of Chicago, and the Rijksmuseum. Intelligent query building from a comprehensive art knowledge database.</p>
       </div>
 
-      <div class="project-card">
+      <div class="project-item">
         <div class="project-label">iOS · SwiftUI · Language</div>
         <h3>Nomade</h3>
         <p>A language-learning app with a dark, editorial aesthetic. Share text from anywhere, extract vocabulary, quiz yourself. Built for quiet daily study.</p>
       </div>
 
-      <div class="project-card">
+      <div class="project-item">
         <div class="project-label">iOS · SwiftUI · Computer Vision</div>
         <h3>Ligne</h3>
         <p>An AI wardrobe app. Scan your clothes, get AI descriptions, generate outfits. Minimal interface, editorial sensibility.</p>
       </div>
 
-      <div class="project-card">
+      <div class="project-item">
         <div class="project-label">Python · Biology · Simulation</div>
         <h3>FusePod</h3>
         <p>An RNA world simulator. Nucleotides bond, pair, and form compounds in a procedurally generated biome. An experiment in origin-of-life chemistry.</p>
       </div>
 
-      <div class="project-card">
+      <div class="project-item">
         <div class="project-label">Scala · Avro · Spark</div>
         <h3><a href="https://github.com/alivcor/torque">Torque</a></h3>
         <p>Serialize Spark DataFrames to and from Avro. A bridge between two serialization worlds.</p>
       </div>
 
-      <div class="project-card">
+      <div class="project-item">
         <div class="project-label">Python · GPT-4 · AWS Lambda</div>
         <h3>En Français</h3>
         <p>Daily French exercises delivered to your inbox. Translation drills, vocabulary, text extracts. Runs on Lambda for essentially $0.</p>
       </div>
 
-      <div class="project-card">
+      <div class="project-item">
         <div class="project-label">Python · BERT · Network Security</div>
         <h3><a href="adaptive-malware-detection-few-shot-learning.pdf">Adaptive Malware Detection</a></h3>
         <p>Few-shot in-context learning for classifying malicious HTTP traffic. Fine-tunes BERT on packet captures from CTU-13 and WRCCDC datasets.</p>
       </div>
 
-      <div class="project-card">
+      <div class="project-item">
         <div class="project-label">Python · PyTorch · Graph Neural Networks</div>
         <h3>Graph ML</h3>
         <p>Node classification, link prediction, and graph clustering with GNNs. GAT, GraphSAGE, and heterogeneous attention on CORA and ogbn-arxiv. Stanford CS224W coursework.</p>
