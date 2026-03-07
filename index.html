@@ -51,18 +51,6 @@
       min-height: 100vh;
       display: flex; flex-direction: column; justify-content: center;
       padding: 0 3rem; max-width: 900px;
-      position: relative;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      right: -120px; top: 50%;
-      transform: translateY(-50%);
-      width: 360px; height: 320px;
-      background: url('assets/citrus-botanical.jpg') no-repeat center / contain;
-      opacity: 0.09;
-      pointer-events: none;
-      mix-blend-mode: multiply;
     }
     .hero h1 {
       font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400;
@@ -154,11 +142,16 @@
       font-size: 1.1rem; font-style: italic; color: #6b7394; font-weight: 400;
     }
 
-    /* Divider — gradient fade, museum style */
+    /* Divider — botanical illustration */
     .ornament {
-      padding: 0 3rem;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(74, 111, 165, 0.2) 30%, rgba(74, 111, 165, 0.2) 70%, transparent);
+      display: flex; justify-content: center; align-items: center;
+      padding: 1rem 3rem;
+    }
+    .ornament img {
+      height: 80px; width: auto;
+      opacity: 0.13;
+      mix-blend-mode: multiply;
+      pointer-events: none;
     }
 
     /* Publications */
@@ -179,18 +172,6 @@
       font-family: 'Inter', sans-serif; font-size: 0.65rem;
       color: #8e94a8; letter-spacing: 0.1em; text-transform: uppercase;
       border-top: 1px solid rgba(74, 111, 165, 0.12);
-      position: relative;
-    }
-    footer::before {
-      content: '';
-      position: absolute;
-      left: 50%; top: -60px;
-      transform: translateX(-50%);
-      width: 120px; height: 100px;
-      background: url('assets/citrus-botanical.jpg') no-repeat center / contain;
-      opacity: 0.06;
-      pointer-events: none;
-      mix-blend-mode: multiply;
     }
 
     /* Responsive */
@@ -202,7 +183,8 @@
       .reading-list { grid-template-columns: 1fr; gap: 2.5rem; }
       .visual-grid { grid-template-columns: 1fr 1fr; }
       footer { padding: 2rem 1.5rem; }
-      .ornament { margin: 0 1.5rem; }
+      .ornament { padding: 1rem 1.5rem; }
+      .ornament img { height: 60px; }
     }
   </style>
 </head>
@@ -232,7 +214,7 @@
     <p>Outside of work I build whatever catches my attention. Lately that's been an AI wardrobe app, a tool that harvests art from museum APIs, and a <a href="https://abhinandandubey.github.io">blog</a> I write when something is worth writing about. I've been studying French for a few years now, and I read less than I probably should.</p>
   </section>
 
-  <div class="ornament"></div>
+  <div class="ornament"><img src="assets/botanical-orange.jpg" alt=""></div>
 
   <section id="work">
     <div class="section-label">Experience</div>
@@ -262,7 +244,7 @@
     </div>
   </section>
 
-  <div class="ornament"></div>
+  <div class="ornament"><img src="assets/botanical-yuzu.jpg" alt=""></div>
 
   <section id="projects">
     <div class="section-label">Projects</div>
@@ -343,7 +325,7 @@
     </div>
   </section>
 
-  <div class="ornament"></div>
+  <div class="ornament"><img src="assets/botanical-mint.jpg" alt=""></div>
 
   <section id="reading">
     <div class="section-label">Reading</div>
@@ -432,16 +414,15 @@
     <p class="visual-note">A partial list. Always looking for recommendations.</p>
   </section>
 
-  <div class="ornament"></div>
+  <div class="ornament"><img src="assets/botanical-lavender.jpg" alt=""></div>
 
-  <section id="parfum" class="about" style="position: relative;">
+  <section id="parfum" class="about">
     <div class="section-label">Assemblage Parfumée</div>
-    <div style="position: absolute; right: -60px; top: 20px; width: 180px; height: 160px; background: url('assets/citrus-botanical.jpg') no-repeat center / contain; opacity: 0.07; pointer-events: none; mix-blend-mode: multiply;"></div>
     <p>Notes on scent, memory, and the small rituals of wearing something well. Bilingual reviews of fragrances encountered in shops, on skin, and sometimes only in passing. Written in French and English, because some things lose themselves in translation.</p>
     <p style="margin-top: 1.5rem;"><a href="https://assemblageparfume.substack.com/">Read on Substack</a></p>
   </section>
 
-  <div class="ornament"></div>
+  <div class="ornament"><img src="assets/botanical-orange.jpg" alt=""></div>
 
   <div class="visual-section" id="sur-papier">
     <div class="section-label">Sur Papier</div>
@@ -453,7 +434,7 @@
     <p class="visual-note">Sketches, paintings, and other things made by hand. More at <a href="https://art.abhinandandubey.com">art.abhinandandubey.com</a></p>
   </div>
 
-  <div class="ornament"></div>
+  <div class="ornament"><img src="assets/botanical-yuzu.jpg" alt=""></div>
 
   <div class="visual-section" id="observations">
     <div class="section-label">Observations</div>
@@ -470,7 +451,7 @@
     <p class="visual-note">Places, light, and things that caught my attention.</p>
   </div>
 
-  <div class="ornament"></div>
+  <div class="ornament"><img src="assets/botanical-mint.jpg" alt=""></div>
 
   <section id="research">
     <div class="section-label">Patents &amp; Publications</div>
