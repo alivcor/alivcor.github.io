@@ -1,84 +1,131 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" fill="none">
-  <!-- Hand-painted style citrus with leaves -->
-  
-  <!-- Leaf top-left, loose and curled -->
-  <path d="M62 45 C50 30, 28 18, 15 25 C5 32, 8 52, 22 62 C36 72, 55 65, 62 45Z" fill="#5a8a4a" opacity="0.85"/>
-  <path d="M62 45 C48 38, 30 28, 18 32" stroke="#3d6b32" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-  <path d="M42 38 C38 45, 32 50, 26 52" stroke="#3d6b32" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.6"/>
-  
-  <!-- Whole orange, top center — irregular circle with texture -->
-  <ellipse cx="175" cy="72" rx="52" ry="50" fill="#e8a832" transform="rotate(-3 175 72)"/>
-  <ellipse cx="175" cy="72" rx="52" ry="50" fill="#d4922a" opacity="0.4" transform="rotate(-3 175 72)"/>
-  <!-- Speckle texture -->
-  <circle cx="160" cy="58" r="1.5" fill="#c4820a" opacity="0.35"/>
-  <circle cx="182" cy="50" r="1.2" fill="#c4820a" opacity="0.3"/>
-  <circle cx="190" cy="68" r="1.8" fill="#c4820a" opacity="0.25"/>
-  <circle cx="168" cy="82" r="1.3" fill="#c4820a" opacity="0.3"/>
-  <circle cx="155" cy="72" r="1" fill="#c4820a" opacity="0.35"/>
-  <circle cx="195" cy="80" r="1.4" fill="#c4820a" opacity="0.2"/>
-  <circle cx="172" cy="42" r="1.1" fill="#c4820a" opacity="0.3"/>
-  <circle cx="185" cy="92" r="1.2" fill="#c4820a" opacity="0.25"/>
-  <!-- Stem -->
-  <path d="M175 22 C176 18, 178 14, 176 10" stroke="#5a7a3a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <!-- Leaf on orange -->
-  <path d="M176 16 C188 5, 210 2, 222 12 C230 20, 220 32, 205 30 C190 28, 180 22, 176 16Z" fill="#6a9a52" opacity="0.9"/>
-  <path d="M176 16 C192 12, 208 10, 218 16" stroke="#4a7a38" stroke-width="0.9" fill="none" stroke-linecap="round"/>
-  <path d="M196 12 C198 18, 200 24, 206 26" stroke="#4a7a38" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 380" fill="none">
+  <!-- Hand-blocked, rough, imperfect citrus illustration -->
+  <!-- Mimicking risograph / woodblock print texture -->
 
-  <!-- Sliced orange, right side — cross section -->
-  <circle cx="320" cy="85" r="44" fill="#f0c060" stroke="#d4922a" stroke-width="1.8"/>
-  <circle cx="320" cy="85" r="36" fill="#f5d080" stroke="#e0a840" stroke-width="0.8" opacity="0.7"/>
-  <!-- Segments -->
-  <path d="M320 49 L320 121" stroke="#e8a832" stroke-width="1.2" opacity="0.6"/>
-  <path d="M284 85 L356 85" stroke="#e8a832" stroke-width="1.2" opacity="0.6"/>
-  <path d="M294 59 L346 111" stroke="#e8a832" stroke-width="1" opacity="0.5"/>
-  <path d="M346 59 L294 111" stroke="#e8a832" stroke-width="1" opacity="0.5"/>
-  <!-- Center pip -->
-  <circle cx="320" cy="85" r="5" fill="#f5e0a0" stroke="#d4a030" stroke-width="0.8"/>
-  <!-- Segment fills — subtle wedge shading -->
-  <path d="M320 85 L310 52 A36 36 0 0 1 330 52Z" fill="#e8a832" opacity="0.15"/>
-  <path d="M320 85 L352 75 A36 36 0 0 1 352 95Z" fill="#e8a832" opacity="0.12"/>
-  <path d="M320 85 L330 118 A36 36 0 0 1 310 118Z" fill="#e8a832" opacity="0.15"/>
-  <path d="M320 85 L288 95 A36 36 0 0 1 288 75Z" fill="#e8a832" opacity="0.12"/>
-  <!-- Rind edge -->
-  <circle cx="320" cy="85" r="44" fill="none" stroke="#c87a18" stroke-width="0.6" opacity="0.3"/>
+  <!-- === LEAF top-left, curled, rough edges === -->
+  <path d="M68 52 C58 34, 38 16, 18 22 C4 28, -2 48, 10 62 C22 76, 52 74, 68 52Z" fill="#4d7a3e"/>
+  <path d="M65 50 C54 32, 36 20, 20 26 C8 32, 6 50, 16 60 C28 70, 50 68, 65 50Z" fill="#5c8f48" opacity="0.7"/>
+  <!-- Rough vein -->
+  <path d="M64 50 C48 38, 32 28, 16 30" stroke="#3a6230" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M44 36 C38 42, 30 50, 24 54" stroke="#3a6230" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <!-- Ink bleed spots -->
+  <circle cx="35" cy="42" r="3" fill="#4d7a3e" opacity="0.4"/>
+  <circle cx="22" cy="50" r="2" fill="#5c8f48" opacity="0.3"/>
 
-  <!-- Loose leaf, bottom left -->
-  <path d="M45 260 C30 235, 15 210, 25 195 C35 182, 55 190, 62 210 C69 230, 58 255, 45 260Z" fill="#5a8a4a" opacity="0.8" transform="rotate(15 45 225)"/>
-  <path d="M45 258 C40 235, 35 215, 32 200" stroke="#3d6b32" stroke-width="1" fill="none" stroke-linecap="round" transform="rotate(15 45 225)"/>
-  <path d="M40 230 C35 225, 30 222, 28 218" stroke="#3d6b32" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.5" transform="rotate(15 45 225)"/>
+  <!-- === WHOLE ORANGE, top center — lumpy, uneven === -->
+  <!-- Base shape — deliberately wobbly -->
+  <path d="M168 28 C192 22, 218 30, 230 52 C242 74, 240 102, 226 118 C212 134, 184 140, 162 134 C140 128, 122 108, 120 84 C118 60, 138 34, 168 28Z" fill="#d4922a"/>
+  <!-- Uneven overprint layer -->
+  <path d="M172 32 C194 26, 216 36, 228 56 C238 74, 236 98, 224 114 C210 130, 186 136, 166 130 C146 124, 130 106, 128 84 C126 62, 146 38, 172 32Z" fill="#e8a832" opacity="0.8"/>
+  <!-- Lighter splotch — like ink didn't cover evenly -->
+  <path d="M158 60 C166 48, 188 44, 200 54 C210 64, 206 82, 194 88 C180 94, 160 86, 156 74 C154 68, 156 64, 158 60Z" fill="#f0be48" opacity="0.5"/>
+  <!-- Dark splotches — ink pooling -->
+  <path d="M142 90 C146 82, 156 78, 162 84 C168 90, 164 100, 156 102 C148 104, 140 98, 142 90Z" fill="#b87a1a" opacity="0.45"/>
+  <path d="M200 100 C206 94, 216 96, 218 104 C220 112, 212 118, 204 114 C196 110, 196 104, 200 100Z" fill="#b87a1a" opacity="0.35"/>
+  <!-- Speckle texture — irregular dots -->
+  <circle cx="180" cy="55" r="2.2" fill="#c4820a" opacity="0.4"/>
+  <circle cx="196" cy="72" r="1.8" fill="#b87a1a" opacity="0.35"/>
+  <circle cx="152" cy="78" r="2.5" fill="#c4820a" opacity="0.3"/>
+  <circle cx="210" cy="88" r="1.5" fill="#b87a1a" opacity="0.4"/>
+  <circle cx="170" cy="110" r="2" fill="#c4820a" opacity="0.25"/>
+  <circle cx="145" cy="65" r="1.3" fill="#b87a1a" opacity="0.35"/>
+  <circle cx="220" cy="72" r="1.8" fill="#c4820a" opacity="0.3"/>
+  <circle cx="188" cy="125" r="1.6" fill="#b87a1a" opacity="0.3"/>
+  <!-- Rough outline — like a shaky hand -->
+  <path d="M168 28 C192 22, 218 30, 230 52 C242 74, 240 102, 226 118 C212 134, 184 140, 162 134 C140 128, 122 108, 120 84 C118 60, 138 34, 168 28Z" fill="none" stroke="#a06810" stroke-width="1.4" opacity="0.3"/>
+  <!-- Stem — rough -->
+  <path d="M176 30 C178 22, 174 14, 178 8" stroke="#5a7a3a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+  <path d="M174 28 C176 20, 172 12, 176 6" stroke="#4a6a2e" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <!-- Leaf on stem — rough, asymmetric -->
+  <path d="M178 14 C190 4, 216 -4, 234 6 C246 14, 240 30, 222 32 C204 34, 186 24, 178 14Z" fill="#4d7a3e"/>
+  <path d="M182 16 C192 8, 214 2, 230 10 C240 16, 236 28, 220 30 C206 32, 190 24, 182 16Z" fill="#5c8f48" opacity="0.6"/>
+  <path d="M180 14 C198 8, 218 6, 230 12" stroke="#3a6230" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+  <!-- Ink bleed on leaf -->
+  <circle cx="210" cy="14" r="3.5" fill="#4d7a3e" opacity="0.3"/>
 
-  <!-- Another whole orange, bottom center-left -->
-  <ellipse cx="155" cy="265" rx="48" ry="46" fill="#e8a832" transform="rotate(5 155 265)"/>
-  <ellipse cx="155" cy="265" rx="48" ry="46" fill="#d4922a" opacity="0.3" transform="rotate(5 155 265)"/>
+  <!-- === SLICED ORANGE, right — rough circle, visible segments === -->
+  <path d="M318 42 C340 36, 362 46, 370 68 C378 90, 374 116, 358 130 C342 144, 316 148, 298 138 C280 128, 270 106, 272 82 C274 58, 296 42, 318 42Z" fill="#f0c060"/>
+  <!-- Rind — thick, uneven -->
+  <path d="M318 42 C340 36, 362 46, 370 68 C378 90, 374 116, 358 130 C342 144, 316 148, 298 138 C280 128, 270 106, 272 82 C274 58, 296 42, 318 42Z" fill="none" stroke="#d4922a" stroke-width="4" opacity="0.7"/>
+  <!-- Inner circle — off-center -->
+  <path d="M322 52 C340 48, 356 56, 362 72 C368 88, 364 108, 352 120 C340 130, 320 134, 306 126 C292 118, 284 100, 286 82 C288 64, 304 52, 322 52Z" fill="#f5d888" opacity="0.6"/>
+  <!-- Segments — wobbly lines, not straight -->
+  <path d="M324 48 C322 68, 320 92, 318 132" stroke="#e8a832" stroke-width="1.6" opacity="0.55" stroke-linecap="round"/>
+  <path d="M276 88 C300 86, 330 84, 372 82" stroke="#e8a832" stroke-width="1.6" opacity="0.55" stroke-linecap="round"/>
+  <path d="M290 56 C308 72, 332 100, 352 124" stroke="#e8a832" stroke-width="1.2" opacity="0.4" stroke-linecap="round"/>
+  <path d="M354 56 C336 72, 310 98, 290 124" stroke="#e8a832" stroke-width="1.2" opacity="0.4" stroke-linecap="round"/>
+  <!-- Center — messy pip -->
+  <circle cx="322" cy="88" r="6" fill="#f5e0a0"/>
+  <circle cx="322" cy="88" r="6" fill="none" stroke="#d4a030" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="320" cy="86" r="2.5" fill="#e8c860" opacity="0.5"/>
+  <!-- Pulp texture splotches -->
+  <path d="M306 68 C310 62, 318 60, 320 66 C322 72, 314 76, 308 74 C304 72, 304 70, 306 68Z" fill="#e8a832" opacity="0.3"/>
+  <path d="M336 98 C340 92, 348 94, 348 100 C348 106, 340 108, 336 104 C334 100, 334 98, 336 98Z" fill="#e8a832" opacity="0.25"/>
+  <path d="M298 102 C302 96, 310 98, 310 104 C310 110, 302 112, 298 108 C296 104, 296 102, 298 102Z" fill="#e8a832" opacity="0.3"/>
+
+  <!-- === LOOSE LEAF, bottom-left, big and curled === -->
+  <path d="M52 290 C36 262, 18 228, 28 208 C38 190, 64 194, 74 216 C84 238, 72 278, 52 290Z" fill="#4d7a3e" transform="rotate(12 52 250)"/>
+  <path d="M50 286 C38 260, 24 232, 32 214 C40 198, 60 200, 68 218 C76 236, 66 272, 50 286Z" fill="#5c8f48" opacity="0.55" transform="rotate(12 52 250)"/>
+  <!-- Vein -->
+  <path d="M50 286 C44 260, 36 238, 32 218" stroke="#3a6230" stroke-width="1.3" fill="none" stroke-linecap="round" transform="rotate(12 52 250)"/>
+  <path d="M44 252 C38 246, 32 242, 28 236" stroke="#3a6230" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.4" transform="rotate(12 52 250)"/>
+  <!-- Ink bleed -->
+  <circle cx="42" cy="240" r="4" fill="#4d7a3e" opacity="0.3" transform="rotate(12 52 250)"/>
+
+  <!-- === ANOTHER WHOLE ORANGE, bottom center — different shape === -->
+  <path d="M162 222 C184 214, 212 220, 226 240 C240 260, 240 290, 228 308 C216 326, 192 332, 170 328 C148 324, 130 306, 126 284 C122 262, 138 230, 162 222Z" fill="#d4922a"/>
+  <path d="M166 226 C186 218, 210 226, 222 244 C234 262, 234 288, 224 304 C212 320, 192 326, 174 322 C156 318, 140 302, 136 282 C132 262, 148 234, 166 226Z" fill="#e8a832" opacity="0.75"/>
+  <!-- Light splotch -->
+  <path d="M170 252 C180 242, 200 240, 210 250 C218 260, 212 276, 198 280 C184 284, 168 274, 166 264 C164 258, 168 254, 170 252Z" fill="#f0be48" opacity="0.45"/>
+  <!-- Dark pooling -->
+  <path d="M148 282 C152 274, 162 270, 168 278 C174 286, 168 296, 158 298 C148 300, 146 290, 148 282Z" fill="#b87a1a" opacity="0.4"/>
   <!-- Speckles -->
-  <circle cx="140" cy="252" r="1.4" fill="#c4820a" opacity="0.3"/>
-  <circle cx="165" cy="248" r="1.1" fill="#c4820a" opacity="0.25"/>
-  <circle cx="170" cy="270" r="1.6" fill="#c4820a" opacity="0.2"/>
-  <circle cx="148" cy="280" r="1.2" fill="#c4820a" opacity="0.3"/>
-  <circle cx="138" cy="268" r="1" fill="#c4820a" opacity="0.25"/>
+  <circle cx="186" cy="240" r="2" fill="#c4820a" opacity="0.35"/>
+  <circle cx="204" cy="260" r="1.6" fill="#b87a1a" opacity="0.3"/>
+  <circle cx="158" cy="268" r="2.2" fill="#c4820a" opacity="0.25"/>
+  <circle cx="218" cy="280" r="1.4" fill="#b87a1a" opacity="0.35"/>
+  <circle cx="176" cy="310" r="1.8" fill="#c4820a" opacity="0.3"/>
+  <circle cx="142" cy="252" r="1.5" fill="#b87a1a" opacity="0.3"/>
+  <!-- Rough outline -->
+  <path d="M162 222 C184 214, 212 220, 226 240 C240 260, 240 290, 228 308 C216 326, 192 332, 170 328 C148 324, 130 306, 126 284 C122 262, 138 230, 162 222Z" fill="none" stroke="#a06810" stroke-width="1.2" opacity="0.25"/>
   <!-- Stem + leaf -->
-  <path d="M155 219 C154 214, 152 208, 155 204" stroke="#5a7a3a" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M155 208 C140 195, 118 192, 108 202 C100 210, 110 222, 125 222 C138 222, 150 215, 155 208Z" fill="#6a9a52" opacity="0.85"/>
-  <path d="M155 208 C140 202, 125 198, 114 204" stroke="#4a7a38" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+  <path d="M180 224 C178 216, 182 208, 180 200" stroke="#5a7a3a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M180 206 C164 192, 138 186, 122 196 C110 206, 118 222, 136 224 C152 226, 172 216, 180 206Z" fill="#4d7a3e"/>
+  <path d="M178 204 C166 194, 144 190, 130 198 C120 206, 126 218, 140 220 C154 222, 170 214, 178 204Z" fill="#5c8f48" opacity="0.5"/>
+  <path d="M178 206 C162 196, 144 192, 128 200" stroke="#3a6230" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <circle cx="150" cy="200" r="3" fill="#4d7a3e" opacity="0.3"/>
 
-  <!-- Peeled/open orange, bottom right -->
-  <circle cx="300" cy="275" r="42" fill="#f0c060" stroke="#d4922a" stroke-width="1.5"/>
-  <circle cx="300" cy="275" r="34" fill="#f5d888" stroke="#e0a840" stroke-width="0.6" opacity="0.6"/>
-  <!-- Radial segments -->
-  <path d="M300 241 L300 309" stroke="#e8a832" stroke-width="1" opacity="0.5"/>
-  <path d="M266 275 L334 275" stroke="#e8a832" stroke-width="1" opacity="0.5"/>
-  <path d="M276 251 L324 299" stroke="#e8a832" stroke-width="0.8" opacity="0.4"/>
-  <path d="M324 251 L276 299" stroke="#e8a832" stroke-width="0.8" opacity="0.4"/>
-  <circle cx="300" cy="275" r="4.5" fill="#f5e0a0" stroke="#d4a030" stroke-width="0.7"/>
+  <!-- === SMALL PEELED ORANGE, bottom right === -->
+  <path d="M310 248 C330 240, 354 248, 364 268 C374 288, 370 314, 358 328 C346 342, 324 346, 308 340 C292 334, 278 316, 278 294 C278 272, 292 252, 310 248Z" fill="#f0c060"/>
+  <path d="M310 248 C330 240, 354 248, 364 268 C374 288, 370 314, 358 328 C346 342, 324 346, 308 340 C292 334, 278 316, 278 294 C278 272, 292 252, 310 248Z" fill="none" stroke="#d4922a" stroke-width="3" opacity="0.6"/>
+  <!-- Inner -->
+  <path d="M316 258 C332 252, 350 260, 356 274 C362 288, 360 308, 350 320 C340 330, 324 334, 312 330 C300 326, 290 312, 290 296 C290 278, 302 260, 316 258Z" fill="#f5d888" opacity="0.55"/>
+  <!-- Wobbly segments -->
+  <path d="M322 250 C320 272, 318 298, 316 340" stroke="#e8a832" stroke-width="1.4" opacity="0.5" stroke-linecap="round"/>
+  <path d="M280 292 C306 290, 336 288, 370 286" stroke="#e8a832" stroke-width="1.4" opacity="0.5" stroke-linecap="round"/>
+  <path d="M292 260 C310 278, 334 306, 354 330" stroke="#e8a832" stroke-width="1" opacity="0.35" stroke-linecap="round"/>
+  <path d="M352 260 C334 278, 310 304, 292 328" stroke="#e8a832" stroke-width="1" opacity="0.35" stroke-linecap="round"/>
+  <circle cx="322" cy="292" r="5" fill="#f5e0a0"/>
+  <circle cx="322" cy="292" r="5" fill="none" stroke="#d4a030" stroke-width="1" opacity="0.5"/>
+  <!-- Pulp splotch -->
+  <path d="M304 274 C308 268, 316 270, 316 276 C316 282, 308 284, 304 280Z" fill="#e8a832" opacity="0.3"/>
   <!-- Stem nub -->
-  <path d="M298 233 C298 230, 300 228, 302 233" stroke="#5a7a3a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M320 248 C322 242, 318 238, 322 234" stroke="#5a7a3a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
 
-  <!-- Scattered leaf, right side -->
-  <path d="M370 180 C380 160, 388 135, 378 122 C368 112, 350 120, 348 140 C346 160, 358 178, 370 180Z" fill="#5a8a4a" opacity="0.75" transform="rotate(-20 365 150)"/>
-  <path d="M369 178 C374 158, 380 140, 376 128" stroke="#3d6b32" stroke-width="0.9" fill="none" stroke-linecap="round" transform="rotate(-20 365 150)"/>
+  <!-- === SCATTERED LEAF, right side, tall === -->
+  <path d="M382 178 C394 154, 400 124, 388 106 C376 92, 354 98, 350 120 C346 142, 362 172, 382 178Z" fill="#4d7a3e" transform="rotate(-15 372 140)"/>
+  <path d="M380 174 C390 152, 396 126, 386 110 C376 98, 358 102, 354 122 C350 142, 364 168, 380 174Z" fill="#5c8f48" opacity="0.5" transform="rotate(-15 372 140)"/>
+  <path d="M380 176 C388 154, 394 132, 386 112" stroke="#3a6230" stroke-width="1" fill="none" stroke-linecap="round" transform="rotate(-15 372 140)"/>
+  <circle cx="378" cy="138" r="3" fill="#4d7a3e" opacity="0.3" transform="rotate(-15 372 140)"/>
 
-  <!-- Small leaf, floating -->
-  <path d="M260 165 C252 150, 238 142, 230 148 C224 154, 230 166, 242 170 C252 174, 258 170, 260 165Z" fill="#6a9a52" opacity="0.7"/>
-  <path d="M260 165 C250 156, 240 150, 234 152" stroke="#4a7a38" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+  <!-- === SMALL LEAF, floating middle === -->
+  <path d="M262 172 C252 154, 234 144, 222 152 C214 160, 220 176, 236 182 C250 188, 260 180, 262 172Z" fill="#5c8f48" opacity="0.8"/>
+  <path d="M260 170 C250 156, 236 148, 226 154 C218 162, 224 174, 238 178 C248 182, 258 176, 260 170Z" fill="#6aa054" opacity="0.4"/>
+  <path d="M260 172 C248 160, 236 152, 226 156" stroke="#3a6230" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+
+  <!-- === Extra ink bleed / print artifacts === -->
+  <circle cx="95" cy="145" r="2.5" fill="#4d7a3e" opacity="0.12"/>
+  <circle cx="270" cy="210" r="3" fill="#d4922a" opacity="0.1"/>
+  <circle cx="380" cy="310" r="2" fill="#5c8f48" opacity="0.1"/>
+  <circle cx="110" cy="320" r="3.5" fill="#d4922a" opacity="0.08"/>
 </svg>
