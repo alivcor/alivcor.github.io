@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhinandan Dubey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Cormorant Garamond', 'Georgia', serif;
+      color: #1a1a1a;
+      background: #faf9f7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: #1a1a1a; color: #faf9f7; }
+
+    a {
+      color: inherit; text-decoration: none;
+      border-bottom: 1px solid #c0bdb8;
+      transition: border-color 0.3s ease;
+    }
+    a:hover { border-color: #1a1a1a; }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 2rem 3rem;
+      display: flex; justify-content: flex-end; align-items: center;
+      background: rgba(250, 249, 247, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    nav .links {
+      display: flex; gap: 2.5rem;
+      font-family: 'Inter', sans-serif; font-size: 0.75rem;
+      font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    nav .links a { border: none; opacity: 0.5; transition: opacity 0.3s ease; }
+    nav .links a:hover { opacity: 1; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 0 3rem; max-width: 900px;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400;
+      line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 2rem;
+    }
+    .hero .subtitle {
+      font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 400;
+      letter-spacing: 0.15em; text-transform: uppercase; color: #777; margin-bottom: 1rem;
+    }
+    .hero .tagline {
+      font-style: italic; font-size: 1.25rem; color: #555; font-weight: 400;
+    }
+
+    /* Sections */
+    section { padding: 6rem 3rem; max-width: 800px; }
+    section.full-width { max-width: 100%; }
+    .section-label {
+      font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #888; margin-bottom: 3rem;
+    }
+
+    /* About */
+    .about p { font-size: 1.35rem; line-height: 1.8; font-weight: 400; max-width: 680px; }
+    .about p + p { margin-top: 1.5rem; }
+
+    /* Experience */
+    .experience-item { margin-bottom: 4rem; }
+    .experience-item .period {
+      font-family: 'Inter', sans-serif; font-size: 0.7rem;
+      letter-spacing: 0.15em; text-transform: uppercase; color: #888;
+      font-weight: 400; margin-bottom: 0.5rem;
+    }
+    .experience-item h3 { font-size: 1.6rem; font-weight: 500; margin-bottom: 0.3rem; }
+    .experience-item .role { font-style: italic; font-size: 1.1rem; color: #555; font-weight: 400; }
+
+    /* Education */
+    .education-item { margin-bottom: 2.5rem; }
+    .education-item h3 { font-size: 1.4rem; font-weight: 500; margin-bottom: 0.2rem; }
+    .education-item .degree { font-size: 1.1rem; font-weight: 400; color: #444; }
+    .education-item .detail { font-style: italic; font-size: 1rem; color: #777; font-weight: 400; margin-top: 0.3rem; }
+
+    /* Projects */
+    .projects-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 4rem;
+    }
+    .project-card .project-label {
+      font-family: 'Inter', sans-serif; font-size: 0.6rem;
+      letter-spacing: 0.15em; text-transform: uppercase; color: #aaa;
+      font-weight: 400; margin-bottom: 0.6rem;
+    }
+    .project-card h3 { font-size: 1.5rem; font-weight: 500; margin-bottom: 0.4rem; }
+    .project-card h3 a { border-bottom: 1px solid transparent; }
+    .project-card h3 a:hover { border-color: #1a1a1a; }
+    .project-card p { font-size: 1.05rem; line-height: 1.7; font-weight: 400; color: #555; }
+
+    /* Reading */
+    .reading-list {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 4rem;
+    }
+    .book-item { margin-bottom: 0.5rem; }
+    .book-item .book-title { font-size: 1.15rem; font-weight: 500; }
+    .book-item .book-author { font-size: 0.95rem; font-weight: 400; color: #777; font-style: italic; }
+
+    /* Visual sections (observations + scientific illustrations) */
+    .visual-section { padding: 6rem 3rem; max-width: 1100px; }
+    .visual-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    }
+    .visual-grid .placeholder {
+      aspect-ratio: 3/2;
+      background: #eae8e4;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Inter', sans-serif; font-size: 0.7rem;
+      color: #bbb; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .visual-note {
+      margin-top: 2rem;
+      font-size: 1.1rem; font-style: italic; color: #888; font-weight: 400;
+    }
+
+    /* Divider */
+    .divider { width: 40px; height: 1px; background: #d0cdc8; margin: 0 3rem; }
+
+    /* Publications */
+    .pub-item { margin-bottom: 2.5rem; }
+    .pub-item h3 { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.3rem; }
+    .pub-item .venue { font-style: italic; font-size: 1rem; color: #777; font-weight: 400; }
+
+    /* Contact */
+    .contact { padding: 6rem 3rem 4rem; max-width: 800px; }
+    .contact-links {
+      display: flex; flex-wrap: wrap; gap: 2rem;
+      font-family: 'Inter', sans-serif; font-size: 0.8rem;
+      font-weight: 400; letter-spacing: 0.05em;
+    }
+
+    footer {
+      padding: 2rem 3rem;
+      font-family: 'Inter', sans-serif; font-size: 0.65rem;
+      color: #aaa; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      nav { padding: 1.5rem 1.5rem; }
+      nav .links { gap: 1.5rem; font-size: 0.65rem; }
+      .hero { padding: 0 1.5rem; }
+      section, .contact, .visual-section { padding: 4rem 1.5rem; }
+      .projects-grid, .reading-list { grid-template-columns: 1fr; gap: 2.5rem; }
+      .visual-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 2rem 1.5rem; }
+      .divider { margin: 0 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#reading">Reading</a>
+      <a href="#research">Research</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <p class="subtitle">Software Engineer · AI Research · New York</p>
+    <h1>Abhinandan<br>Dubey</h1>
+    <p class="tagline">graphs, language models, and the occasional painting</p>
+  </div>
+
+  <section id="about" class="about">
+    <div class="section-label">About</div>
+    <p>Hello from New York. I graduated from <a href="https://www.stonybrook.edu/">Stony Brook University</a> with a master's in Computer Science and currently work at <a href="https://aws.amazon.com/">Amazon Web Services</a>, where I spend most of my time thinking about graphs, language models, and how to make cloud security less noisy.</p>
+    <p>Outside of work I build things that interest me. Lately that's been iOS apps for language learning and wardrobe styling, a tool that harvests art from museum APIs, and an RNA world simulator I keep tinkering with. I write a <a href="https://abhinandandubey.github.io">blog</a> when something is worth writing about. I've been studying French for a few years now, taking classes around the city, and I read less than I probably should.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="work">
+    <div class="section-label">Experience</div>
+    <div class="experience-item">
+      <div class="period">April 2021 · Present</div>
+      <h3>Amazon Web Services</h3>
+      <p class="role">Security Analytics &amp; AI Research, GuardDuty</p>
+    </div>
+    <div class="experience-item">
+      <div class="period">February 2018 · April 2021</div>
+      <h3>Nomura Securities</h3>
+      <p class="role">Data Management Technology</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Education</div>
+    <div class="education-item">
+      <h3>Stony Brook University</h3>
+      <p class="degree">M.S. Computer Science</p>
+      <p class="detail">Computer Vision &amp; HCI · 2017</p>
+    </div>
+    <div class="education-item">
+      <h3>Birla Institute of Applied Sciences</h3>
+      <p class="degree">B.Tech (Hons.) Computer Science</p>
+      <p class="detail">First Division with Honors · 2016</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="projects">
+    <div class="section-label">Projects</div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-label">Scala · Spark · Monitoring</div>
+        <h3><a href="https://github.com/alivcor/airavat">Airavat</a></h3>
+        <p>A metric interceptor and job watchdog for Spark. Collects query plans, tracks disk spill and shuffle, kills resource-hogging jobs before they take down your cluster. Ships with a React UI.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-label">Python · Computer Vision · PyPI</div>
+        <h3><a href="https://github.com/alivcor/segraph">Segraph</a></h3>
+        <p>Builds graphs from SLIC superpixels for CRF-based image segmentation. Published on PyPI. Born out of the cell segmentation research at Stony Brook.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-label">Python · NLP · Deep Learning</div>
+        <h3><a href="https://github.com/alivcor/aes">DeepScore</a></h3>
+        <p>Automated essay scoring using RNNs and feature engineering. Semantic analysis, clause parsing, discourse flow. A two-fold study on grading with minimal training data.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-label">Scala · Apache Spark</div>
+        <h3><a href="https://github.com/alivcor/SMOTE-Spark">SMOTE for Spark</a></h3>
+        <p>Synthetic Minority Over-sampling Technique implemented for SparkML. Handles class imbalance in large-scale distributed datasets.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-label">Python · Museums · Art</div>
+        <h3><a href="https://github.com/alivcor/artharvester">Delacroix</a></h3>
+        <p>Harvests openly licensed artwork from the Louvre, the Met, the Art Institute of Chicago, and the Rijksmuseum. Intelligent query building from a comprehensive art knowledge database.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-label">iOS · SwiftUI · Language</div>
+        <h3>Nomade</h3>
+        <p>A language-learning app with a dark, editorial aesthetic. Share text from anywhere, extract vocabulary, quiz yourself. Built for quiet daily study.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-label">iOS · SwiftUI · Computer Vision</div>
+        <h3>Ligne</h3>
+        <p>An AI wardrobe app. Scan your clothes, get AI descriptions, generate outfits. Minimal interface, editorial sensibility.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-label">Python · Biology · Simulation</div>
+        <h3>FusePod</h3>
+        <p>An RNA world simulator. Nucleotides bond, pair, and form compounds in a procedurally generated biome. An experiment in origin-of-life chemistry.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-label">Scala · Avro · Spark</div>
+        <h3><a href="https://github.com/alivcor/torque">Torque</a></h3>
+        <p>Serialize Spark DataFrames to and from Avro. A bridge between two serialization worlds.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-label">Python · GPT-4 · AWS Lambda</div>
+        <h3>En Français</h3>
+        <p>Daily French exercises delivered to your inbox. Translation drills, vocabulary, text extracts. Runs on Lambda for essentially $0.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="reading">
+    <div class="section-label">Reading</div>
+    <div class="reading-list">
+      <div class="book-item">
+        <div class="book-title">Graph Representation Learning</div>
+        <div class="book-author">William L. Hamilton</div>
+      </div>
+      <div class="book-item">
+        <div class="book-title">Reinforcement Learning and Stochastic Optimization</div>
+        <div class="book-author">Warren B. Powell</div>
+      </div>
+      <div class="book-item">
+        <div class="book-title">Reinforcement Learning: An Introduction</div>
+        <div class="book-author">Sutton &amp; Barto</div>
+      </div>
+      <div class="book-item">
+        <div class="book-title">All of Statistics</div>
+        <div class="book-author">Larry Wasserman</div>
+      </div>
+    </div>
+    <p class="visual-note">A partial list. Always looking for recommendations.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <div class="visual-section" id="scientific-illustrations">
+    <div class="section-label">Sur Papier</div>
+    <div class="visual-grid">
+      <div class="placeholder">coming soon</div>
+      <div class="placeholder">coming soon</div>
+      <div class="placeholder">coming soon</div>
+    </div>
+    <p class="visual-note">Sketches, paintings, and other things made by hand. More at <a href="https://art.abhinandandubey.com">art.abhinandandubey.com</a></p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="visual-section" id="observations">
+    <div class="section-label">Observations</div>
+    <div class="visual-grid">
+      <div class="placeholder">coming soon</div>
+      <div class="placeholder">coming soon</div>
+      <div class="placeholder">coming soon</div>
+      <div class="placeholder">coming soon</div>
+      <div class="placeholder">coming soon</div>
+      <div class="placeholder">coming soon</div>
+    </div>
+    <p class="visual-note">Places, light, and things that caught my attention.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <section id="research">
+    <div class="section-label">Patents &amp; Publications</div>
+    <div class="pub-item">
+      <h3><a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12418558">Detection of Malicious Domains</a></h3>
+      <p class="venue">US Patent No. 12,418,558 B1 · 2025</p>
+    </div>
+    <div class="pub-item">
+      <h3>CNN Based Yeast Cell Segmentation in Multi-Modal Fluorescent Microscopy Data</h3>
+      <p class="venue">CVMI, IEEE CVPR Workshop · 2017</p>
+    </div>
+    <div class="pub-item">
+      <h3>Classification of CKD Cases Using MultiVariate K-Means Clustering</h3>
+      <p class="venue">International Journal of Scientific &amp; Research Publications · 2015</p>
+    </div>
+  </section>
+
+  <div id="contact" class="contact">
+    <div class="section-label">Contact</div>
+    <div class="contact-links">
+      <a href="mailto:[email]">[email]</a>
+      <a href="https://linkedin.com/in/abhinandandubey">LinkedIn</a>
+      <a href="https://github.com/alivcor">GitHub</a>
+      <a href="https://abhinandandubey.github.io">Blog</a>
+    </div>
+  </div>
+
+  <footer>© 2026 Abhinandan Dubey</footer>
+</body>
+</html>
