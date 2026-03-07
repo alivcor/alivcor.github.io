@@ -16,6 +16,7 @@
       color: #2d3142;
       background: #f0eeeb;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     ::selection { background: #4a6fa5; color: #f0eeeb; }
@@ -50,6 +51,17 @@
       min-height: 100vh;
       display: flex; flex-direction: column; justify-content: center;
       padding: 0 3rem; max-width: 900px;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -120px; top: 50%;
+      transform: translateY(-50%);
+      width: 360px; height: 320px;
+      background: url('assets/citrus-accent.svg') no-repeat center / contain;
+      opacity: 0.09;
+      pointer-events: none;
     }
     .hero h1 {
       font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400;
@@ -166,6 +178,17 @@
       font-family: 'Inter', sans-serif; font-size: 0.65rem;
       color: #8e94a8; letter-spacing: 0.1em; text-transform: uppercase;
       border-top: 1px solid rgba(74, 111, 165, 0.12);
+      position: relative;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      left: 50%; top: -60px;
+      transform: translateX(-50%);
+      width: 120px; height: 100px;
+      background: url('assets/citrus-accent.svg') no-repeat center / contain;
+      opacity: 0.06;
+      pointer-events: none;
     }
 
     /* Responsive */
@@ -409,8 +432,9 @@
 
   <div class="ornament"></div>
 
-  <section id="parfum" class="about">
+  <section id="parfum" class="about" style="position: relative;">
     <div class="section-label">Assemblage Parfumée</div>
+    <div style="position: absolute; right: -60px; top: 20px; width: 180px; height: 160px; background: url('assets/citrus-accent.svg') no-repeat center / contain; opacity: 0.07; pointer-events: none;"></div>
     <p>Notes on scent, memory, and the small rituals of wearing something well. Bilingual reviews of fragrances encountered in shops, on skin, and sometimes only in passing. Written in French and English, because some things lose themselves in translation.</p>
     <p style="margin-top: 1.5rem;"><a href="https://assemblageparfume.substack.com/">Read on Substack</a></p>
   </section>
