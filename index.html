@@ -104,95 +104,74 @@
     .education-item .degree { font-size: 1.1rem; font-weight: 400; color: #454a5e; }
     .education-item .detail { font-style: italic; font-size: 1rem; color: #6b7394; font-weight: 400; margin-top: 0.3rem; }
 
-    /* Projects — Gallimard broadsheet */
-    .projects-folio {
-      max-width: 820px;
-      background: #f5e6d0;
-      border: 1.5px solid #3a3a3a;
+    /* Projects — accordion */
+    .proj-list { max-width: 760px; counter-reset: proj; }
+    .proj-row {
+      border-bottom: 1px solid rgba(74, 111, 165, 0.12);
+      counter-increment: proj;
       position: relative;
-      padding: 3.5rem 3rem 3rem;
     }
-    .projects-folio::before {
-      content: '';
-      position: absolute;
-      top: 6px; right: 6px; bottom: 6px; left: 6px;
-      border: 1.5px solid #b5342e;
-      pointer-events: none;
+    .proj-row:last-child { border-bottom: none; }
+    .proj-head {
+      display: flex;
+      align-items: baseline;
+      padding: 1.15rem 0;
+      cursor: default;
     }
-    .projects-folio::after {
-      content: '';
-      position: absolute;
-      top: 10px; right: 10px; bottom: 10px; left: 10px;
-      border: 0.75px solid #b5342e;
-      pointer-events: none;
-    }
-    .folio-header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      position: relative;
-      z-index: 1;
-    }
-    .folio-header h2 {
-      font-family: 'SabonLTStd', 'Sabon LT Pro', Georgia, serif;
-      font-size: 1.6rem;
-      font-weight: 400;
-      color: #b5342e;
-      letter-spacing: 0.04em;
-      margin-bottom: 0.3rem;
-    }
-    .folio-header .folio-sub {
+    .proj-head::before {
+      content: counter(proj, decimal-leading-zero);
       font-family: 'Inter', sans-serif;
-      font-size: 0.55rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #7c6e5a;
+      font-size: 2rem;
+      font-weight: 200;
+      color: rgba(74, 111, 165, 0.15);
+      min-width: 3.2rem;
+      line-height: 1;
+      flex-shrink: 0;
     }
-    .folio-rule {
-      width: 50px;
-      height: 1px;
-      background: #b5342e;
-      margin: 0 auto 2.5rem;
-      position: relative;
-      z-index: 1;
-    }
-    .folio-list {
-      position: relative;
-      z-index: 1;
-      columns: 2;
-      column-gap: 3rem;
-    }
-    .folio-entry {
-      break-inside: avoid;
-      margin-bottom: 2rem;
-    }
-    .folio-entry .fe-title {
-      font-family: 'SabonLTStd', 'Sabon LT Pro', Georgia, serif;
-      font-size: 1.15rem;
+    .proj-head .proj-name {
+      font-size: 1.3rem;
       font-weight: 400;
-      color: #b5342e;
-      margin-bottom: 0.25rem;
+      flex: 1;
     }
-    .folio-entry .fe-title a {
-      color: #b5342e;
-      border: none;
-      transition: color 0.25s ease;
+    .proj-head .proj-name a {
+      color: #2d3142;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease, color 0.3s ease;
     }
-    .folio-entry .fe-title a:hover { color: #7a2420; }
-    .folio-entry .fe-domain {
+    .proj-row:hover .proj-name a,
+    .proj-row:hover .proj-name {
+      color: #4a6fa5;
+    }
+    .proj-row:hover .proj-name a {
+      border-color: rgba(74, 111, 165, 0.3);
+    }
+    .proj-head .proj-tag {
       font-family: 'Inter', sans-serif;
-      font-size: 0.52rem;
+      font-size: 0.58rem;
       font-weight: 400;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #8a7b6a;
-      margin-bottom: 0.4rem;
+      color: #7c839a;
+      margin-left: 1.5rem;
+      flex-shrink: 0;
     }
-    .folio-entry .fe-desc {
-      font-family: 'SabonLTStd', 'Sabon LT Pro', Georgia, serif;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #4a3f32;
+    .proj-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.35s ease;
+      opacity: 0;
+    }
+    .proj-row:hover .proj-body {
+      max-height: 8rem;
+      opacity: 1;
+    }
+    .proj-body p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #5a6178;
       font-weight: 400;
+      padding: 0 0 1.2rem 3.2rem;
+      max-width: 600px;
     }
 
     /* Reading — horizontal book covers */
@@ -336,10 +315,10 @@
       .book-cover .cover-title { font-size: 0.65rem; }
       .book-cover .cover-author { font-size: 0.52rem; }
       .visual-grid { grid-template-columns: 1fr 1fr; }
-      .projects-folio { padding: 2.5rem 1.5rem 2rem; }
-      .folio-list { columns: 1; }
-      .folio-entry .fe-title { font-size: 1.05rem; }
-      .folio-entry .fe-desc { font-size: 0.9rem; }
+      .proj-head .proj-tag { display: none; }
+      .proj-head .proj-name { font-size: 1.1rem; }
+      .proj-head::before { font-size: 1.5rem; min-width: 2.4rem; }
+      .proj-body p { padding-left: 2.4rem; font-size: 0.95rem; }
       footer { padding: 2rem 1.5rem; }
       .ornament { padding: 0 1.5rem; margin: -2rem 0; }
       .ornament img { height: 180px; }
@@ -406,93 +385,138 @@
   <section id="projects">
     <div class="section-label">Projects</div>
 
-    <div class="projects-folio">
-      <div class="folio-header">
-        <h2>Travaux</h2>
-        <span class="folio-sub">Selected Projects</span>
+    <div class="proj-list">
+
+      <div class="proj-row">
+        <div class="proj-head">
+          <span class="proj-name"><a href="https://github.com/alivcor/bref">Bref</a></span>
+          <span class="proj-tag">Python / LLM Tooling</span>
+        </div>
+        <div class="proj-body">
+          <p>Prompt compression and token cost optimizer for LLM APIs. Multi-pass entropy scoring, TF-IDF pruning, response caching, and model routing.</p>
+        </div>
       </div>
-      <div class="folio-rule"></div>
-      <div class="folio-list">
 
-        <div class="folio-entry">
-          <div class="fe-title"><a href="https://github.com/alivcor/bref">Bref</a></div>
-          <div class="fe-domain">Python / LLM Tooling</div>
-          <p class="fe-desc">Prompt compression and token cost optimizer for LLM APIs. Multi-pass entropy scoring, TF-IDF pruning, response caching, and model routing.</p>
+      <div class="proj-row">
+        <div class="proj-head">
+          <span class="proj-name"><a href="https://github.com/alivcor/airavat">Airavat</a></span>
+          <span class="proj-tag">Scala / Spark</span>
         </div>
-
-        <div class="folio-entry">
-          <div class="fe-title"><a href="https://github.com/alivcor/airavat">Airavat</a></div>
-          <div class="fe-domain">Scala / Spark</div>
-          <p class="fe-desc">Metric interceptor and job watchdog for Spark. Collects query plans, tracks disk spill and shuffle, kills resource-hogging jobs.</p>
+        <div class="proj-body">
+          <p>Metric interceptor and job watchdog for Spark. Collects query plans, tracks disk spill and shuffle, kills resource-hogging jobs.</p>
         </div>
-
-        <div class="folio-entry">
-          <div class="fe-title"><a href="https://github.com/alivcor/segraph">Segraph</a></div>
-          <div class="fe-domain">Python / Vision</div>
-          <p class="fe-desc">Builds graphs from SLIC superpixels for CRF-based image segmentation. Published on PyPI. Born out of cell segmentation research at Stony Brook.</p>
-        </div>
-
-        <div class="folio-entry">
-          <div class="fe-title"><a href="https://github.com/alivcor/aes">DeepScore</a></div>
-          <div class="fe-domain">Python / NLP</div>
-          <p class="fe-desc">Automated essay scoring using RNNs and feature engineering. Semantic analysis, clause parsing, discourse flow.</p>
-        </div>
-
-        <div class="folio-entry">
-          <div class="fe-title"><a href="https://github.com/alivcor/SMORK">SMOTE for Spark</a></div>
-          <div class="fe-domain">Scala / ML</div>
-          <p class="fe-desc">Synthetic Minority Over-sampling Technique implemented for SparkML. Handles class imbalance in large-scale distributed datasets.</p>
-        </div>
-
-        <div class="folio-entry">
-          <div class="fe-title"><a href="https://github.com/alivcor/delacroix">Delacroix</a></div>
-          <div class="fe-domain">Python / Art</div>
-          <p class="fe-desc">Harvests openly licensed artwork from the Louvre, the Met, the Art Institute of Chicago, and the Rijksmuseum.</p>
-        </div>
-
-        <div class="folio-entry">
-          <div class="fe-title">Nomade</div>
-          <div class="fe-domain">iOS / SwiftUI</div>
-          <p class="fe-desc">A language-learning app with a dark, editorial aesthetic. Share text from anywhere, extract vocabulary, quiz yourself.</p>
-        </div>
-
-        <div class="folio-entry">
-          <div class="fe-title">Ligne</div>
-          <div class="fe-domain">iOS / Vision</div>
-          <p class="fe-desc">An AI wardrobe app. Scan your clothes, get AI descriptions, generate outfits. Minimal interface, editorial sensibility.</p>
-        </div>
-
-        <div class="folio-entry">
-          <div class="fe-title">FusePod</div>
-          <div class="fe-domain">Python / Biology</div>
-          <p class="fe-desc">An RNA world simulator. Nucleotides bond, pair, and form compounds in a procedurally generated biome.</p>
-        </div>
-
-        <div class="folio-entry">
-          <div class="fe-title"><a href="https://github.com/alivcor/torque">Torque</a></div>
-          <div class="fe-domain">Scala / Avro</div>
-          <p class="fe-desc">Serialize Spark DataFrames to and from Avro. A bridge between two serialization worlds.</p>
-        </div>
-
-        <div class="folio-entry">
-          <div class="fe-title">En Français</div>
-          <div class="fe-domain">Python / Lambda</div>
-          <p class="fe-desc">Daily French exercises delivered to your inbox. Translation drills, vocabulary, text extracts. Runs on Lambda for essentially $0.</p>
-        </div>
-
-        <div class="folio-entry">
-          <div class="fe-title"><a href="adaptive-malware-detection-few-shot-learning.pdf">Adaptive Malware Detection</a></div>
-          <div class="fe-domain">Python / Security</div>
-          <p class="fe-desc">Few-shot in-context learning for classifying malicious HTTP traffic. Fine-tunes BERT on packet captures from CTU-13 and WRCCDC datasets.</p>
-        </div>
-
-        <div class="folio-entry">
-          <div class="fe-title">Graph ML</div>
-          <div class="fe-domain">Python / GNNs</div>
-          <p class="fe-desc">Node classification, link prediction, and graph clustering with GNNs. GAT, GraphSAGE, and heterogeneous attention on CORA and ogbn-arxiv.</p>
-        </div>
-
       </div>
+
+      <div class="proj-row">
+        <div class="proj-head">
+          <span class="proj-name"><a href="https://github.com/alivcor/segraph">Segraph</a></span>
+          <span class="proj-tag">Python / Vision</span>
+        </div>
+        <div class="proj-body">
+          <p>Builds graphs from SLIC superpixels for CRF-based image segmentation. Published on PyPI. Born out of cell segmentation research at Stony Brook.</p>
+        </div>
+      </div>
+
+      <div class="proj-row">
+        <div class="proj-head">
+          <span class="proj-name"><a href="https://github.com/alivcor/aes">DeepScore</a></span>
+          <span class="proj-tag">Python / NLP</span>
+        </div>
+        <div class="proj-body">
+          <p>Automated essay scoring using RNNs and feature engineering. Semantic analysis, clause parsing, discourse flow.</p>
+        </div>
+      </div>
+
+      <div class="proj-row">
+        <div class="proj-head">
+          <span class="proj-name"><a href="https://github.com/alivcor/SMORK">SMOTE for Spark</a></span>
+          <span class="proj-tag">Scala / ML</span>
+        </div>
+        <div class="proj-body">
+          <p>Synthetic Minority Over-sampling Technique implemented for SparkML. Handles class imbalance in large-scale distributed datasets.</p>
+        </div>
+      </div>
+
+      <div class="proj-row">
+        <div class="proj-head">
+          <span class="proj-name"><a href="https://github.com/alivcor/delacroix">Delacroix</a></span>
+          <span class="proj-tag">Python / Art</span>
+        </div>
+        <div class="proj-body">
+          <p>Harvests openly licensed artwork from the Louvre, the Met, the Art Institute of Chicago, and the Rijksmuseum.</p>
+        </div>
+      </div>
+
+      <div class="proj-row">
+        <div class="proj-head">
+          <span class="proj-name">Nomade</span>
+          <span class="proj-tag">iOS / SwiftUI</span>
+        </div>
+        <div class="proj-body">
+          <p>A language-learning app with a dark, editorial aesthetic. Share text from anywhere, extract vocabulary, quiz yourself.</p>
+        </div>
+      </div>
+
+      <div class="proj-row">
+        <div class="proj-head">
+          <span class="proj-name">Ligne</span>
+          <span class="proj-tag">iOS / Vision</span>
+        </div>
+        <div class="proj-body">
+          <p>An AI wardrobe app. Scan your clothes, get AI descriptions, generate outfits. Minimal interface, editorial sensibility.</p>
+        </div>
+      </div>
+
+      <div class="proj-row">
+        <div class="proj-head">
+          <span class="proj-name">FusePod</span>
+          <span class="proj-tag">Python / Biology</span>
+        </div>
+        <div class="proj-body">
+          <p>An RNA world simulator. Nucleotides bond, pair, and form compounds in a procedurally generated biome.</p>
+        </div>
+      </div>
+
+      <div class="proj-row">
+        <div class="proj-head">
+          <span class="proj-name"><a href="https://github.com/alivcor/torque">Torque</a></span>
+          <span class="proj-tag">Scala / Avro</span>
+        </div>
+        <div class="proj-body">
+          <p>Serialize Spark DataFrames to and from Avro. A bridge between two serialization worlds.</p>
+        </div>
+      </div>
+
+      <div class="proj-row">
+        <div class="proj-head">
+          <span class="proj-name">En Français</span>
+          <span class="proj-tag">Python / Lambda</span>
+        </div>
+        <div class="proj-body">
+          <p>Daily French exercises delivered to your inbox. Translation drills, vocabulary, text extracts. Runs on Lambda for essentially $0.</p>
+        </div>
+      </div>
+
+      <div class="proj-row">
+        <div class="proj-head">
+          <span class="proj-name"><a href="adaptive-malware-detection-few-shot-learning.pdf">Adaptive Malware Detection</a></span>
+          <span class="proj-tag">Python / Security</span>
+        </div>
+        <div class="proj-body">
+          <p>Few-shot in-context learning for classifying malicious HTTP traffic. Fine-tunes BERT on packet captures from CTU-13 and WRCCDC datasets.</p>
+        </div>
+      </div>
+
+      <div class="proj-row">
+        <div class="proj-head">
+          <span class="proj-name">Graph ML</span>
+          <span class="proj-tag">Python / GNNs</span>
+        </div>
+        <div class="proj-body">
+          <p>Node classification, link prediction, and graph clustering with GNNs. GAT, GraphSAGE, and heterogeneous attention on CORA and ogbn-arxiv.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
