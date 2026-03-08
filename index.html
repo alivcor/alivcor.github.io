@@ -126,79 +126,98 @@
       width: max-content;
     }
     .galli-card {
-      width: 175px;
-      height: 248px;
-      background: #faf8f3;
-      border: 1.5px solid #2d3142;
+      width: 180px;
+      height: 260px;
+      background: #f5e6d0;
+      border: 1.5px solid #3a3a3a;
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       text-align: center;
-      padding: 1.6rem 1rem;
+      padding: 0;
       flex-shrink: 0;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
-      text-decoration: none;
       cursor: pointer;
+    }
+    /* Double red rule inside the black border */
+    .galli-card::before {
+      content: '';
+      position: absolute;
+      top: 6px; right: 6px; bottom: 6px; left: 6px;
+      border: 1.5px solid #b5342e;
+      pointer-events: none;
     }
     .galli-card::after {
       content: '';
       position: absolute;
-      top: 4px; right: 4px; bottom: 4px; left: 4px;
-      border: 1px solid #c0392b;
+      top: 10px; right: 10px; bottom: 10px; left: 10px;
+      border: 0.75px solid #b5342e;
       pointer-events: none;
     }
     .galli-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
-    .galli-card .gc-domain {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.48rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #7c839a;
-      margin-bottom: 0.6rem;
-    }
-    .galli-card .gc-rule {
-      width: 28px;
-      height: 1px;
-      background: #c0392b;
-      margin-bottom: 0.7rem;
+    .galli-card .gc-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.8rem 1rem 0;
+      flex: 1;
     }
     .galli-card .gc-title {
       font-family: 'SabonLTStd', 'Sabon LT Pro', Georgia, serif;
-      font-size: 1.05rem;
-      font-weight: 400;
-      line-height: 1.3;
-      color: #2d3142;
-      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #b5342e;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.7rem;
     }
     .galli-card .gc-title a {
-      color: #2d3142;
+      color: #b5342e;
       border: none;
       transition: color 0.3s ease;
     }
-    .galli-card:hover .gc-title a { color: #4a6fa5; }
+    .galli-card:hover .gc-title a { color: #8b2720; }
     .galli-card .gc-desc {
-      font-size: 0.62rem;
+      font-family: 'SabonLTStd', 'Sabon LT Pro', Georgia, serif;
+      font-size: 0.6rem;
       font-style: italic;
-      line-height: 1.55;
-      color: #6b7394;
+      line-height: 1.5;
+      color: #5a4a3a;
       font-weight: 400;
-      max-width: 140px;
+      max-width: 135px;
+    }
+    .galli-card .gc-bottom {
+      position: absolute;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
     }
     .galli-card .gc-nrf {
-      position: absolute;
-      bottom: 10px;
+      font-family: 'SabonLTStd', 'Sabon LT Pro', Georgia, serif;
+      font-size: 0.75rem;
+      font-style: italic;
+      font-weight: 400;
+      color: #2d2d2d;
+      letter-spacing: 0;
+    }
+    .galli-card .gc-domain {
       font-family: 'Inter', sans-serif;
       font-size: 0.42rem;
       font-weight: 500;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #a0a8b8;
+      color: #3a3a3a;
     }
 
     /* Reading — horizontal book covers */
@@ -343,9 +362,9 @@
       .book-cover .cover-author { font-size: 0.52rem; }
       .visual-grid { grid-template-columns: 1fr 1fr; }
       .projects-shelf-wrapper { margin: 0 -1.5rem; padding: 0 1.5rem; }
-      .galli-card { width: 155px; height: 220px; padding: 1.2rem 0.8rem; }
+      .galli-card { width: 155px; height: 228px; }
       .galli-card .gc-title { font-size: 0.95rem; }
-      .galli-card .gc-desc { font-size: 0.56rem; }
+      .galli-card .gc-desc { font-size: 0.54rem; }
       footer { padding: 2rem 1.5rem; }
       .ornament { padding: 0 1.5rem; margin: -2rem 0; }
       .ornament img { height: 180px; }
@@ -416,107 +435,146 @@
       <div class="projects-shelf">
 
         <div class="galli-card">
-          <span class="gc-domain">Python / LLM Tooling</span>
-          <div class="gc-rule"></div>
-          <div class="gc-title"><a href="https://github.com/alivcor/bref">Bref</a></div>
-          <p class="gc-desc">Prompt compression and token cost optimizer. Entropy scoring, caching, model routing.</p>
-          <span class="gc-nrf">alivcor</span>
+          <div class="gc-inner">
+            <div class="gc-title"><a href="https://github.com/alivcor/bref">Bref</a></div>
+            <p class="gc-desc">Prompt compression and token cost optimizer. Entropy scoring, caching, model routing.</p>
+          </div>
+          <div class="gc-bottom">
+            <span class="gc-nrf">nrf</span>
+            <span class="gc-domain">Python / LLM Tooling</span>
+          </div>
         </div>
 
         <div class="galli-card">
-          <span class="gc-domain">Scala / Spark</span>
-          <div class="gc-rule"></div>
-          <div class="gc-title"><a href="https://github.com/alivcor/airavat">Airavat</a></div>
-          <p class="gc-desc">Metric interceptor and job watchdog for Spark. Query plans, disk spill, shuffle tracking.</p>
-          <span class="gc-nrf">alivcor</span>
+          <div class="gc-inner">
+            <div class="gc-title"><a href="https://github.com/alivcor/airavat">Airavat</a></div>
+            <p class="gc-desc">Metric interceptor and job watchdog for Spark. Query plans, disk spill, shuffle tracking.</p>
+          </div>
+          <div class="gc-bottom">
+            <span class="gc-nrf">nrf</span>
+            <span class="gc-domain">Scala / Spark</span>
+          </div>
         </div>
 
         <div class="galli-card">
-          <span class="gc-domain">Python / Vision</span>
-          <div class="gc-rule"></div>
-          <div class="gc-title"><a href="https://github.com/alivcor/segraph">Segraph</a></div>
-          <p class="gc-desc">Graphs from SLIC superpixels for CRF-based image segmentation. Published on PyPI.</p>
-          <span class="gc-nrf">alivcor</span>
+          <div class="gc-inner">
+            <div class="gc-title"><a href="https://github.com/alivcor/segraph">Segraph</a></div>
+            <p class="gc-desc">Graphs from SLIC superpixels for CRF-based image segmentation. Published on PyPI.</p>
+          </div>
+          <div class="gc-bottom">
+            <span class="gc-nrf">nrf</span>
+            <span class="gc-domain">Python / Vision</span>
+          </div>
         </div>
 
         <div class="galli-card">
-          <span class="gc-domain">Python / NLP</span>
-          <div class="gc-rule"></div>
-          <div class="gc-title"><a href="https://github.com/alivcor/aes">DeepScore</a></div>
-          <p class="gc-desc">Automated essay scoring with RNNs. Semantic analysis, clause parsing, discourse flow.</p>
-          <span class="gc-nrf">alivcor</span>
+          <div class="gc-inner">
+            <div class="gc-title"><a href="https://github.com/alivcor/aes">DeepScore</a></div>
+            <p class="gc-desc">Automated essay scoring with RNNs. Semantic analysis, clause parsing, discourse flow.</p>
+          </div>
+          <div class="gc-bottom">
+            <span class="gc-nrf">nrf</span>
+            <span class="gc-domain">Python / NLP</span>
+          </div>
         </div>
 
         <div class="galli-card">
-          <span class="gc-domain">Scala / ML</span>
-          <div class="gc-rule"></div>
-          <div class="gc-title"><a href="https://github.com/alivcor/SMORK">SMOTE for Spark</a></div>
-          <p class="gc-desc">Synthetic minority over-sampling for SparkML. Class imbalance at distributed scale.</p>
-          <span class="gc-nrf">alivcor</span>
+          <div class="gc-inner">
+            <div class="gc-title"><a href="https://github.com/alivcor/SMORK">SMOTE for Spark</a></div>
+            <p class="gc-desc">Synthetic minority over-sampling for SparkML. Class imbalance at distributed scale.</p>
+          </div>
+          <div class="gc-bottom">
+            <span class="gc-nrf">nrf</span>
+            <span class="gc-domain">Scala / ML</span>
+          </div>
         </div>
 
         <div class="galli-card">
-          <span class="gc-domain">Python / Art</span>
-          <div class="gc-rule"></div>
-          <div class="gc-title"><a href="https://github.com/alivcor/delacroix">Delacroix</a></div>
-          <p class="gc-desc">Harvests openly licensed artwork from the Louvre, the Met, the Art Institute, the Rijksmuseum.</p>
-          <span class="gc-nrf">alivcor</span>
+          <div class="gc-inner">
+            <div class="gc-title"><a href="https://github.com/alivcor/delacroix">Delacroix</a></div>
+            <p class="gc-desc">Harvests openly licensed artwork from the Louvre, the Met, the Art Institute, the Rijksmuseum.</p>
+          </div>
+          <div class="gc-bottom">
+            <span class="gc-nrf">nrf</span>
+            <span class="gc-domain">Python / Art</span>
+          </div>
         </div>
 
         <div class="galli-card">
-          <span class="gc-domain">iOS / SwiftUI</span>
-          <div class="gc-rule"></div>
-          <div class="gc-title">Nomade</div>
-          <p class="gc-desc">Language-learning app. Share text, extract vocabulary, quiz yourself. Dark editorial aesthetic.</p>
-          <span class="gc-nrf">alivcor</span>
+          <div class="gc-inner">
+            <div class="gc-title">Nomade</div>
+            <p class="gc-desc">Language-learning app. Share text, extract vocabulary, quiz yourself. Dark editorial aesthetic.</p>
+          </div>
+          <div class="gc-bottom">
+            <span class="gc-nrf">nrf</span>
+            <span class="gc-domain">iOS / SwiftUI</span>
+          </div>
         </div>
 
         <div class="galli-card">
-          <span class="gc-domain">iOS / Vision</span>
-          <div class="gc-rule"></div>
-          <div class="gc-title">Ligne</div>
-          <p class="gc-desc">AI wardrobe app. Scan clothes, get descriptions, generate outfits. Minimal interface.</p>
-          <span class="gc-nrf">alivcor</span>
+          <div class="gc-inner">
+            <div class="gc-title">Ligne</div>
+            <p class="gc-desc">AI wardrobe app. Scan clothes, get descriptions, generate outfits. Minimal interface.</p>
+          </div>
+          <div class="gc-bottom">
+            <span class="gc-nrf">nrf</span>
+            <span class="gc-domain">iOS / Vision</span>
+          </div>
         </div>
 
         <div class="galli-card">
-          <span class="gc-domain">Python / Biology</span>
-          <div class="gc-rule"></div>
-          <div class="gc-title">FusePod</div>
-          <p class="gc-desc">RNA world simulator. Nucleotides bond and form compounds in a procedurally generated biome.</p>
-          <span class="gc-nrf">alivcor</span>
+          <div class="gc-inner">
+            <div class="gc-title">FusePod</div>
+            <p class="gc-desc">RNA world simulator. Nucleotides bond and form compounds in a procedurally generated biome.</p>
+          </div>
+          <div class="gc-bottom">
+            <span class="gc-nrf">nrf</span>
+            <span class="gc-domain">Python / Biology</span>
+          </div>
         </div>
 
         <div class="galli-card">
-          <span class="gc-domain">Scala / Avro</span>
-          <div class="gc-rule"></div>
-          <div class="gc-title"><a href="https://github.com/alivcor/torque">Torque</a></div>
-          <p class="gc-desc">Serialize Spark DataFrames to and from Avro. A bridge between two serialization worlds.</p>
-          <span class="gc-nrf">alivcor</span>
+          <div class="gc-inner">
+            <div class="gc-title"><a href="https://github.com/alivcor/torque">Torque</a></div>
+            <p class="gc-desc">Serialize Spark DataFrames to and from Avro. A bridge between two serialization worlds.</p>
+          </div>
+          <div class="gc-bottom">
+            <span class="gc-nrf">nrf</span>
+            <span class="gc-domain">Scala / Avro</span>
+          </div>
         </div>
 
         <div class="galli-card">
-          <span class="gc-domain">Python / Lambda</span>
-          <div class="gc-rule"></div>
-          <div class="gc-title">En Français</div>
-          <p class="gc-desc">Daily French exercises to your inbox. Translation drills, vocabulary, text extracts. Runs for $0.</p>
-          <span class="gc-nrf">alivcor</span>
+          <div class="gc-inner">
+            <div class="gc-title">En Français</div>
+            <p class="gc-desc">Daily French exercises to your inbox. Translation drills, vocabulary, text extracts. Runs for $0.</p>
+          </div>
+          <div class="gc-bottom">
+            <span class="gc-nrf">nrf</span>
+            <span class="gc-domain">Python / Lambda</span>
+          </div>
         </div>
 
         <div class="galli-card">
-          <span class="gc-domain">Python / Security</span>
-          <div class="gc-rule"></div>
-          <div class="gc-title"><a href="adaptive-malware-detection-few-shot-learning.pdf">Adaptive Malware Detection</a></div>
-          <p class="gc-desc">Few-shot learning for classifying malicious HTTP traffic. Fine-tuned BERT on CTU-13.</p>
-          <span class="gc-nrf">alivcor</span>
+          <div class="gc-inner">
+            <div class="gc-title"><a href="adaptive-malware-detection-few-shot-learning.pdf">Adaptive Malware Detection</a></div>
+            <p class="gc-desc">Few-shot learning for classifying malicious HTTP traffic. Fine-tuned BERT on CTU-13.</p>
+          </div>
+          <div class="gc-bottom">
+            <span class="gc-nrf">nrf</span>
+            <span class="gc-domain">Python / Security</span>
+          </div>
         </div>
 
         <div class="galli-card">
-          <span class="gc-domain">Python / GNNs</span>
-          <div class="gc-rule"></div>
-          <div class="gc-title">Graph ML</div>
-          <p class="gc-desc">Node classification, link prediction, graph clustering. GAT, GraphSAGE on CORA and ogbn-arxiv.</p>
-          <span class="gc-nrf">alivcor</span>
+          <div class="gc-inner">
+            <div class="gc-title">Graph ML</div>
+            <p class="gc-desc">Node classification, link prediction, graph clustering. GAT, GraphSAGE on CORA and ogbn-arxiv.</p>
+          </div>
+          <div class="gc-bottom">
+            <span class="gc-nrf">nrf</span>
+            <span class="gc-domain">Python / GNNs</span>
+          </div>
         </div>
 
       </div>
