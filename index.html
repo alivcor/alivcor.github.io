@@ -104,52 +104,72 @@
     .education-item .degree { font-size: 1.1rem; font-weight: 400; color: #454a5e; }
     .education-item .detail { font-style: italic; font-size: 1rem; color: #6b7394; font-weight: 400; margin-top: 0.3rem; }
 
-    /* Projects — featured + grid */
-    .project-featured {
-      max-width: 720px;
-      padding: 2.2rem 2.4rem;
-      margin-bottom: 3.5rem;
-      border: 1px solid rgba(74, 111, 165, 0.18);
-      background: rgba(74, 111, 165, 0.03);
+    /* Projects — catalogue index */
+    .catalogue { max-width: 760px; counter-reset: entry; }
+    .catalogue-entry {
+      border-bottom: 1px solid rgba(74, 111, 165, 0.12);
+      counter-increment: entry;
     }
-    .project-featured .project-label {
-      font-family: 'Inter', sans-serif; font-size: 0.6rem;
-      letter-spacing: 0.15em; text-transform: uppercase; color: #4a6fa5;
-      font-weight: 500; margin-bottom: 0.5rem;
+    .catalogue-entry:last-child { border-bottom: none; }
+    .catalogue-row {
+      display: flex; align-items: baseline;
+      padding: 1rem 0;
+      cursor: pointer;
+      transition: padding 0.3s ease;
     }
-    .project-featured h3 { font-size: 1.8rem; font-weight: 500; margin-bottom: 0.6rem; }
-    .project-featured h3 a { color: #2d3142; border-bottom: 1px solid rgba(74, 111, 165, 0.25); }
-    .project-featured h3 a:hover { border-color: #4a6fa5; color: #4a6fa5; }
-    .project-featured p { font-size: 1.15rem; line-height: 1.75; font-weight: 400; color: #5a6178; }
-    .project-featured .project-meta {
-      margin-top: 1rem;
-      display: flex; gap: 1.5rem;
-      font-family: 'Inter', sans-serif; font-size: 0.72rem;
+    .catalogue-row::before {
+      content: counter(entry, decimal-leading-zero);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 300;
+      color: #a0a8b8;
       letter-spacing: 0.05em;
+      min-width: 2.2rem;
+      flex-shrink: 0;
     }
-    .project-featured .project-meta a { color: #4a6fa5; border-bottom: 1px solid rgba(74, 111, 165, 0.3); }
-
-    .projects-grid {
-      max-width: 720px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
+    .catalogue-row .cat-title {
+      font-size: 1.25rem;
+      font-weight: 400;
+      flex: 1;
     }
-    .project-cell {
-      padding: 1.8rem 1.6rem 1.8rem 0;
-      border-bottom: 1px solid rgba(74, 111, 165, 0.1);
+    .catalogue-row .cat-title a {
+      color: #2d3142;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease, color 0.3s ease;
     }
-    .project-cell:nth-child(even) { padding: 1.8rem 0 1.8rem 1.6rem; }
-    .project-cell:nth-last-child(-n+2) { border-bottom: none; }
-    .project-cell .project-label {
-      font-family: 'Inter', sans-serif; font-size: 0.55rem;
-      letter-spacing: 0.12em; text-transform: uppercase; color: #7c839a;
-      font-weight: 400; margin-bottom: 0.4rem;
+    .catalogue-entry:hover .cat-title a,
+    .catalogue-entry.open .cat-title a {
+      border-color: rgba(74, 111, 165, 0.3);
     }
-    .project-cell h3 { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.35rem; }
-    .project-cell h3 a { color: #2d3142; border-bottom: 1px solid rgba(74, 111, 165, 0.2); }
-    .project-cell h3 a:hover { border-color: #4a6fa5; color: #4a6fa5; }
-    .project-cell p { font-size: 0.92rem; line-height: 1.65; font-weight: 400; color: #5a6178; }
+    .catalogue-row .cat-domain {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7c839a;
+      margin-left: 1.5rem;
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .catalogue-desc {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+    .catalogue-entry.open .catalogue-desc {
+      max-height: 10rem;
+      opacity: 1;
+    }
+    .catalogue-desc p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      font-weight: 400;
+      color: #5a6178;
+      padding: 0 0 1.2rem 2.2rem;
+      max-width: 580px;
+    }
 
     /* Reading — horizontal book covers */
     .reading-shelf-wrapper {
@@ -292,11 +312,8 @@
       .book-cover .cover-title { font-size: 0.65rem; }
       .book-cover .cover-author { font-size: 0.52rem; }
       .visual-grid { grid-template-columns: 1fr 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .project-cell { padding: 1.5rem 0; }
-      .project-cell:nth-child(even) { padding: 1.5rem 0; }
-      .project-cell:nth-last-child(-n+2) { border-bottom: 1px solid rgba(74, 111, 165, 0.1); }
-      .project-cell:last-child { border-bottom: none; }
+      .catalogue-row .cat-domain { display: none; }
+      .catalogue-row .cat-title { font-size: 1.1rem; }
       footer { padding: 2rem 1.5rem; }
       .ornament { padding: 0 1.5rem; margin: -2rem 0; }
       .ornament img { height: 180px; }
@@ -363,88 +380,136 @@
   <section id="projects">
     <div class="section-label">Projects</div>
 
-    <div class="project-featured">
-      <div class="project-label">New · Python · TypeScript · LLM Tooling</div>
-      <h3><a href="https://github.com/alivcor/bref">Bref</a></h3>
-      <p>Prompt compression and token cost optimizer for LLM APIs. Multi-pass entropy scoring, TF-IDF pruning, response caching, and model routing. Reduce API costs by 40–60% without degrading output quality. Ships as a Python library, VS Code extension, and Kiro hook.</p>
-      <div class="project-meta">
-        <a href="https://github.com/alivcor/bref">GitHub</a>
-        <a href="https://pypi.org/project/bref/">PyPI</a>
-      </div>
-    </div>
+    <div class="catalogue">
 
-    <div class="projects-grid">
-
-      <div class="project-cell">
-        <div class="project-label">Scala · Spark · Monitoring</div>
-        <h3><a href="https://github.com/alivcor/airavat">Airavat</a></h3>
-        <p>Metric interceptor and job watchdog for Spark. Collects query plans, tracks disk spill and shuffle, kills resource-hogging jobs.</p>
+      <div class="catalogue-entry">
+        <div class="catalogue-row">
+          <span class="cat-title"><a href="https://github.com/alivcor/bref">Bref</a></span>
+          <span class="cat-domain">Python / LLM Tooling</span>
+        </div>
+        <div class="catalogue-desc">
+          <p>Prompt compression and token cost optimizer for LLM APIs. Multi-pass entropy scoring, TF-IDF pruning, response caching, and model routing. Python library, VS Code extension, and Kiro hook.</p>
+        </div>
       </div>
 
-      <div class="project-cell">
-        <div class="project-label">Python · Computer Vision · PyPI</div>
-        <h3><a href="https://github.com/alivcor/segraph">Segraph</a></h3>
-        <p>Graphs from SLIC superpixels for CRF-based image segmentation. Published on PyPI.</p>
+      <div class="catalogue-entry">
+        <div class="catalogue-row">
+          <span class="cat-title"><a href="https://github.com/alivcor/airavat">Airavat</a></span>
+          <span class="cat-domain">Scala / Spark</span>
+        </div>
+        <div class="catalogue-desc">
+          <p>Metric interceptor and job watchdog for Spark. Collects query plans, tracks disk spill and shuffle, kills resource-hogging jobs. Ships with a React UI.</p>
+        </div>
       </div>
 
-      <div class="project-cell">
-        <div class="project-label">Python · NLP · Deep Learning</div>
-        <h3><a href="https://github.com/alivcor/aes">DeepScore</a></h3>
-        <p>Automated essay scoring with RNNs. Semantic analysis, clause parsing, discourse flow.</p>
+      <div class="catalogue-entry">
+        <div class="catalogue-row">
+          <span class="cat-title"><a href="https://github.com/alivcor/segraph">Segraph</a></span>
+          <span class="cat-domain">Python / Vision</span>
+        </div>
+        <div class="catalogue-desc">
+          <p>Builds graphs from SLIC superpixels for CRF-based image segmentation. Published on PyPI. Born out of cell segmentation research at Stony Brook.</p>
+        </div>
       </div>
 
-      <div class="project-cell">
-        <div class="project-label">Scala · Apache Spark</div>
-        <h3><a href="https://github.com/alivcor/SMORK">SMOTE for Spark</a></h3>
-        <p>Synthetic Minority Over-sampling for SparkML. Class imbalance at distributed scale.</p>
+      <div class="catalogue-entry">
+        <div class="catalogue-row">
+          <span class="cat-title"><a href="https://github.com/alivcor/aes">DeepScore</a></span>
+          <span class="cat-domain">Python / NLP</span>
+        </div>
+        <div class="catalogue-desc">
+          <p>Automated essay scoring using RNNs and feature engineering. Semantic analysis, clause parsing, discourse flow.</p>
+        </div>
       </div>
 
-      <div class="project-cell">
-        <div class="project-label">Python · Museums · Art</div>
-        <h3><a href="https://github.com/alivcor/delacroix">Delacroix</a></h3>
-        <p>Harvests openly licensed artwork from the Louvre, the Met, the Art Institute of Chicago, and the Rijksmuseum.</p>
+      <div class="catalogue-entry">
+        <div class="catalogue-row">
+          <span class="cat-title"><a href="https://github.com/alivcor/SMORK">SMOTE for Spark</a></span>
+          <span class="cat-domain">Scala / ML</span>
+        </div>
+        <div class="catalogue-desc">
+          <p>Synthetic Minority Over-sampling Technique implemented for SparkML. Handles class imbalance in large-scale distributed datasets.</p>
+        </div>
       </div>
 
-      <div class="project-cell">
-        <div class="project-label">iOS · SwiftUI · Language</div>
-        <h3>Nomade</h3>
-        <p>Language-learning app with a dark, editorial aesthetic. Extract vocabulary, quiz yourself.</p>
+      <div class="catalogue-entry">
+        <div class="catalogue-row">
+          <span class="cat-title"><a href="https://github.com/alivcor/delacroix">Delacroix</a></span>
+          <span class="cat-domain">Python / Art</span>
+        </div>
+        <div class="catalogue-desc">
+          <p>Harvests openly licensed artwork from the Louvre, the Met, the Art Institute of Chicago, and the Rijksmuseum. Intelligent query building from a comprehensive art knowledge database.</p>
+        </div>
       </div>
 
-      <div class="project-cell">
-        <div class="project-label">iOS · SwiftUI · Computer Vision</div>
-        <h3>Ligne</h3>
-        <p>AI wardrobe app. Scan clothes, get descriptions, generate outfits. Minimal interface.</p>
+      <div class="catalogue-entry">
+        <div class="catalogue-row">
+          <span class="cat-title">Nomade</span>
+          <span class="cat-domain">iOS / SwiftUI</span>
+        </div>
+        <div class="catalogue-desc">
+          <p>A language-learning app with a dark, editorial aesthetic. Share text from anywhere, extract vocabulary, quiz yourself. Built for quiet daily study.</p>
+        </div>
       </div>
 
-      <div class="project-cell">
-        <div class="project-label">Python · Biology · Simulation</div>
-        <h3>FusePod</h3>
-        <p>RNA world simulator. Nucleotides bond and form compounds in a procedurally generated biome.</p>
+      <div class="catalogue-entry">
+        <div class="catalogue-row">
+          <span class="cat-title">Ligne</span>
+          <span class="cat-domain">iOS / Vision</span>
+        </div>
+        <div class="catalogue-desc">
+          <p>An AI wardrobe app. Scan your clothes, get AI descriptions, generate outfits. Minimal interface, editorial sensibility.</p>
+        </div>
       </div>
 
-      <div class="project-cell">
-        <div class="project-label">Scala · Avro · Spark</div>
-        <h3><a href="https://github.com/alivcor/torque">Torque</a></h3>
-        <p>Serialize Spark DataFrames to and from Avro.</p>
+      <div class="catalogue-entry">
+        <div class="catalogue-row">
+          <span class="cat-title">FusePod</span>
+          <span class="cat-domain">Python / Biology</span>
+        </div>
+        <div class="catalogue-desc">
+          <p>An RNA world simulator. Nucleotides bond, pair, and form compounds in a procedurally generated biome. An experiment in origin-of-life chemistry.</p>
+        </div>
       </div>
 
-      <div class="project-cell">
-        <div class="project-label">Python · GPT-4 · AWS Lambda</div>
-        <h3>En Français</h3>
-        <p>Daily French exercises delivered to your inbox. Runs on Lambda for essentially $0.</p>
+      <div class="catalogue-entry">
+        <div class="catalogue-row">
+          <span class="cat-title"><a href="https://github.com/alivcor/torque">Torque</a></span>
+          <span class="cat-domain">Scala / Avro</span>
+        </div>
+        <div class="catalogue-desc">
+          <p>Serialize Spark DataFrames to and from Avro. A bridge between two serialization worlds.</p>
+        </div>
       </div>
 
-      <div class="project-cell">
-        <div class="project-label">Python · BERT · Network Security</div>
-        <h3><a href="adaptive-malware-detection-few-shot-learning.pdf">Adaptive Malware Detection</a></h3>
-        <p>Few-shot in-context learning for classifying malicious HTTP traffic via fine-tuned BERT.</p>
+      <div class="catalogue-entry">
+        <div class="catalogue-row">
+          <span class="cat-title">En Français</span>
+          <span class="cat-domain">Python / Lambda</span>
+        </div>
+        <div class="catalogue-desc">
+          <p>Daily French exercises delivered to your inbox. Translation drills, vocabulary, text extracts. Runs on Lambda for essentially $0.</p>
+        </div>
       </div>
 
-      <div class="project-cell">
-        <div class="project-label">Python · PyTorch · GNNs</div>
-        <h3>Graph ML</h3>
-        <p>Node classification, link prediction, graph clustering. GAT, GraphSAGE on CORA and ogbn-arxiv.</p>
+      <div class="catalogue-entry">
+        <div class="catalogue-row">
+          <span class="cat-title"><a href="adaptive-malware-detection-few-shot-learning.pdf">Adaptive Malware Detection</a></span>
+          <span class="cat-domain">Python / Security</span>
+        </div>
+        <div class="catalogue-desc">
+          <p>Few-shot in-context learning for classifying malicious HTTP traffic. Fine-tunes BERT on packet captures from CTU-13 and WRCCDC datasets.</p>
+        </div>
+      </div>
+
+      <div class="catalogue-entry">
+        <div class="catalogue-row">
+          <span class="cat-title">Graph ML</span>
+          <span class="cat-domain">Python / GNNs</span>
+        </div>
+        <div class="catalogue-desc">
+          <p>Node classification, link prediction, and graph clustering with GNNs. GAT, GraphSAGE, and heterogeneous attention on CORA and ogbn-arxiv.</p>
+        </div>
       </div>
 
     </div>
@@ -626,6 +691,19 @@
         if (!isDown) return;
         e.preventDefault();
         w.scrollLeft = sl - (e.pageX - w.offsetLeft - startX);
+      });
+    })();
+  </script>
+
+  <script>
+    // Catalogue toggle
+    (function() {
+      var entries = document.querySelectorAll('.catalogue-entry');
+      entries.forEach(function(entry) {
+        entry.querySelector('.catalogue-row').addEventListener('click', function(e) {
+          if (e.target.tagName === 'A') return;
+          entry.classList.toggle('open');
+        });
       });
     })();
   </script>
