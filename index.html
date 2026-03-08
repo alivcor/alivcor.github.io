@@ -122,13 +122,74 @@
     .project-item h3 a:hover { border-color: #4a6fa5; color: #4a6fa5; }
     .project-item p { font-size: 1.1rem; line-height: 1.75; font-weight: 400; color: #5a6178; max-width: 600px; }
 
-    /* Reading */
-    .reading-list {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 4rem;
+    /* Reading — book spine shelf */
+    .reading-shelf-wrapper {
+      position: relative;
+      overflow: hidden;
+      margin: 0 -3rem;
+      padding: 0 3rem;
+      mask-image: linear-gradient(to right, transparent, #000 3rem, #000 calc(100% - 3rem), transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 3rem, #000 calc(100% - 3rem), transparent);
     }
-    .book-item { margin-bottom: 0.5rem; }
-    .book-item .book-title { font-size: 1.15rem; font-weight: 500; }
-    .book-item .book-author { font-size: 0.95rem; font-weight: 400; color: #6b7394; font-style: italic; }
+    .reading-shelf {
+      display: flex;
+      gap: 0;
+      padding: 1.5rem 0;
+      width: max-content;
+      transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    .book-spine {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.8rem 0.55rem;
+      min-height: 220px;
+      border-right: 1px solid rgba(74, 111, 165, 0.08);
+      cursor: default;
+      transition: background 0.4s ease, padding 0.3s ease;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .book-spine:last-child { border-right: none; }
+    .book-spine:hover {
+      background: rgba(74, 111, 165, 0.04);
+    }
+    .book-spine .spine-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #2d3142;
+      white-space: nowrap;
+    }
+    .book-spine .spine-author {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: #8e94a8;
+      font-style: italic;
+      margin-top: 0.6rem;
+      white-space: nowrap;
+    }
+    .book-spine .spine-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.5rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #4a6fa5;
+      margin-top: 0.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .book-spine:hover .spine-tag { opacity: 1; }
+
+    /* Shelf edge — a subtle line beneath the spines */
+    .shelf-edge {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(74, 111, 165, 0.15) 15%, rgba(74, 111, 165, 0.15) 85%, transparent);
+      margin-top: -0.5rem;
+    }
 
     /* Visual sections */
     .visual-section { padding: 7rem 3rem; max-width: 1100px; }
@@ -201,7 +262,10 @@
       nav .links { gap: 1.5rem; font-size: 0.65rem; }
       .hero { padding: 0 1.5rem; }
       section, .contact, .visual-section { padding: 5rem 1.5rem; }
-      .reading-list { grid-template-columns: 1fr; gap: 2.5rem; }
+      .reading-shelf-wrapper { margin: 0 -1.5rem; padding: 0 1.5rem; }
+      .book-spine { min-height: 180px; padding: 1.4rem 0.45rem; }
+      .book-spine .spine-title { font-size: 0.78rem; }
+      .book-spine .spine-author { font-size: 0.65rem; }
       .visual-grid { grid-template-columns: 1fr 1fr; }
       footer { padding: 2rem 1.5rem; }
       .ornament { padding: 0 1.5rem; margin: -2rem 0; }
@@ -349,88 +413,96 @@
 
   <section id="reading">
     <div class="section-label">Reading</div>
-    <div class="reading-list">
-      <div class="book-item">
-        <div class="book-title">L'Étranger</div>
-        <div class="book-author">Albert Camus · current</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">Le Petit Prince</div>
-        <div class="book-author">Antoine de Saint-Exupéry</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">Circe</div>
-        <div class="book-author">Madeline Miller</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">The Truths We Hold</div>
-        <div class="book-author">Kamala Harris</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">107 Days</div>
-        <div class="book-author">Kamala Harris</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">A House in Fez</div>
-        <div class="book-author">Suzanna Clarke</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">De la Terre à la Lune</div>
-        <div class="book-author">Jules Verne</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">Zero: The Biography of a Dangerous Idea</div>
-        <div class="book-author">Charles Seife</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">The Miraculous True History of Nomi Ali</div>
-        <div class="book-author">Uzma Aslam Khan</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">Principles: Life and Work</div>
-        <div class="book-author">Ray Dalio</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">The Life We Bury</div>
-        <div class="book-author">Allen Eskens</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">Hum</div>
-        <div class="book-author">Helen Phillips</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">Lettres à Yves</div>
-        <div class="book-author">Pierre Bergé</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">Notes from Underground</div>
-        <div class="book-author">Fyodor Dostoevsky</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">All the Light We Cannot See</div>
-        <div class="book-author">Anthony Doerr</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">Giovanni's Room</div>
-        <div class="book-author">James Baldwin</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">The Emperor of Gladness</div>
-        <div class="book-author">Ocean Vuong · to read</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">Co-Intelligence: Living and Working with AI</div>
-        <div class="book-author">Ethan Mollick · to read</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">Bonjour Tristesse</div>
-        <div class="book-author">Françoise Sagan · to read</div>
-      </div>
-      <div class="book-item">
-        <div class="book-title">Classification Struggles</div>
-        <div class="book-author">Pierre Bourdieu · to read</div>
+    <div class="reading-shelf-wrapper">
+      <div class="reading-shelf" id="bookShelf">
+        <div class="book-spine">
+          <span class="spine-title">L'Étranger</span>
+          <span class="spine-author">Camus</span>
+          <span class="spine-tag">current</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">Le Petit Prince</span>
+          <span class="spine-author">Saint-Exupéry</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">Circe</span>
+          <span class="spine-author">Miller</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">The Truths We Hold</span>
+          <span class="spine-author">Harris</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">107 Days</span>
+          <span class="spine-author">Harris</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">A House in Fez</span>
+          <span class="spine-author">Clarke</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">De la Terre à la Lune</span>
+          <span class="spine-author">Verne</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">Zero</span>
+          <span class="spine-author">Seife</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">Nomi Ali</span>
+          <span class="spine-author">Khan</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">Principles</span>
+          <span class="spine-author">Dalio</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">The Life We Bury</span>
+          <span class="spine-author">Eskens</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">Hum</span>
+          <span class="spine-author">Phillips</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">Lettres à Yves</span>
+          <span class="spine-author">Bergé</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">Notes from Underground</span>
+          <span class="spine-author">Dostoevsky</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">All the Light We Cannot See</span>
+          <span class="spine-author">Doerr</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">Giovanni's Room</span>
+          <span class="spine-author">Baldwin</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">The Emperor of Gladness</span>
+          <span class="spine-author">Vuong</span>
+          <span class="spine-tag">to read</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">Co-Intelligence</span>
+          <span class="spine-author">Mollick</span>
+          <span class="spine-tag">to read</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">Bonjour Tristesse</span>
+          <span class="spine-author">Sagan</span>
+          <span class="spine-tag">to read</span>
+        </div>
+        <div class="book-spine">
+          <span class="spine-title">Classification Struggles</span>
+          <span class="spine-author">Bourdieu</span>
+          <span class="spine-tag">to read</span>
+        </div>
       </div>
     </div>
+    <div class="shelf-edge"></div>
     <p class="visual-note">A partial list. Always looking for recommendations.</p>
   </section>
 
@@ -498,6 +570,41 @@
       <a href="https://abhinandandubey.github.io">Blog</a>
     </div>
   </div>
+
+  <script>
+    // Gentle drag-to-scroll for the book shelf
+    (function() {
+      var wrapper = document.querySelector('.reading-shelf-wrapper');
+      var shelf = document.getElementById('bookShelf');
+      if (!wrapper || !shelf) return;
+
+      var isDown = false, startX, scrollLeft;
+
+      wrapper.addEventListener('mousedown', function(e) {
+        isDown = true;
+        wrapper.style.cursor = 'grabbing';
+        startX = e.pageX - wrapper.offsetLeft;
+        scrollLeft = wrapper.scrollLeft;
+      });
+      wrapper.addEventListener('mouseleave', function() { isDown = false; wrapper.style.cursor = ''; });
+      wrapper.addEventListener('mouseup', function() { isDown = false; wrapper.style.cursor = ''; });
+      wrapper.addEventListener('mousemove', function(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        var x = e.pageX - wrapper.offsetLeft;
+        wrapper.scrollLeft = scrollLeft - (x - startX) * 0.8;
+      });
+
+      // Enable native horizontal scroll
+      wrapper.style.overflowX = 'auto';
+      wrapper.style.scrollbarWidth = 'none'; // Firefox
+      wrapper.style.msOverflowStyle = 'none'; // IE
+      // Hide scrollbar for webkit
+      var style = document.createElement('style');
+      style.textContent = '.reading-shelf-wrapper::-webkit-scrollbar { display: none; }';
+      document.head.appendChild(style);
+    })();
+  </script>
 
   <footer>© 2026 Abhinandan Dubey</footer>
 </body>
