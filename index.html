@@ -122,73 +122,69 @@
     .project-item h3 a:hover { border-color: #4a6fa5; color: #4a6fa5; }
     .project-item p { font-size: 1.1rem; line-height: 1.75; font-weight: 400; color: #5a6178; max-width: 600px; }
 
-    /* Reading — book spine shelf */
+    /* Reading — horizontal book covers */
     .reading-shelf-wrapper {
       position: relative;
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: hidden;
       margin: 0 -3rem;
       padding: 0 3rem;
-      mask-image: linear-gradient(to right, transparent, #000 3rem, #000 calc(100% - 3rem), transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, #000 3rem, #000 calc(100% - 3rem), transparent);
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent);
+      cursor: grab;
     }
+    .reading-shelf-wrapper::-webkit-scrollbar { display: none; }
+    .reading-shelf-wrapper:active { cursor: grabbing; }
     .reading-shelf {
       display: flex;
-      gap: 0;
-      padding: 1.5rem 0;
+      gap: 1rem;
+      padding: 1rem 0 1.5rem;
       width: max-content;
-      transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
-    .book-spine {
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
+    .book-cover {
+      width: 120px;
+      height: 170px;
+      border-radius: 2px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.8rem 0.55rem;
-      min-height: 220px;
-      border-right: 1px solid rgba(74, 111, 165, 0.08);
-      cursor: default;
-      transition: background 0.4s ease, padding 0.3s ease;
-      position: relative;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0.8rem 0.7rem;
       flex-shrink: 0;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     }
-    .book-spine:last-child { border-right: none; }
-    .book-spine:hover {
-      background: rgba(74, 111, 165, 0.04);
+    .book-cover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     }
-    .book-spine .spine-title {
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: #2d3142;
-      white-space: nowrap;
+    .book-cover .cover-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: inherit;
     }
-    .book-spine .spine-author {
-      font-size: 0.7rem;
+    .book-cover .cover-author {
+      font-size: 0.58rem;
       font-weight: 400;
-      color: #8e94a8;
-      font-style: italic;
-      margin-top: 0.6rem;
-      white-space: nowrap;
+      margin-top: 0.25rem;
+      opacity: 0.7;
+      color: inherit;
     }
-    .book-spine .spine-tag {
+    .book-cover .cover-tag {
       font-family: 'Inter', sans-serif;
-      font-size: 0.5rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
+      font-size: 0.45rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #4a6fa5;
-      margin-top: 0.5rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .book-spine:hover .spine-tag { opacity: 1; }
-
-    /* Shelf edge — a subtle line beneath the spines */
-    .shelf-edge {
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(74, 111, 165, 0.15) 15%, rgba(74, 111, 165, 0.15) 85%, transparent);
-      margin-top: -0.5rem;
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      opacity: 0.5;
+      color: inherit;
     }
 
     /* Visual sections */
@@ -263,9 +259,9 @@
       .hero { padding: 0 1.5rem; }
       section, .contact, .visual-section { padding: 5rem 1.5rem; }
       .reading-shelf-wrapper { margin: 0 -1.5rem; padding: 0 1.5rem; }
-      .book-spine { min-height: 180px; padding: 1.4rem 0.45rem; }
-      .book-spine .spine-title { font-size: 0.78rem; }
-      .book-spine .spine-author { font-size: 0.65rem; }
+      .book-cover { width: 105px; height: 150px; padding: 0.6rem 0.55rem; }
+      .book-cover .cover-title { font-size: 0.65rem; }
+      .book-cover .cover-author { font-size: 0.52rem; }
       .visual-grid { grid-template-columns: 1fr 1fr; }
       footer { padding: 2rem 1.5rem; }
       .ornament { padding: 0 1.5rem; margin: -2rem 0; }
@@ -413,96 +409,95 @@
 
   <section id="reading">
     <div class="section-label">Reading</div>
-    <div class="reading-shelf-wrapper">
-      <div class="reading-shelf" id="bookShelf">
-        <div class="book-spine">
-          <span class="spine-title">L'Étranger</span>
-          <span class="spine-author">Camus</span>
-          <span class="spine-tag">current</span>
+    <div class="reading-shelf-wrapper" id="shelfWrapper">
+      <div class="reading-shelf">
+        <div class="book-cover" style="background:#3b4a6b;color:#d8dce8;">
+          <span class="cover-tag">now</span>
+          <span class="cover-title">L'Étranger</span>
+          <span class="cover-author">Albert Camus</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">Le Petit Prince</span>
-          <span class="spine-author">Saint-Exupéry</span>
+        <div class="book-cover" style="background:#c2a87d;color:#3a2e1e;">
+          <span class="cover-title">Le Petit Prince</span>
+          <span class="cover-author">Saint-Exupéry</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">Circe</span>
-          <span class="spine-author">Miller</span>
+        <div class="book-cover" style="background:#6b5b4e;color:#e4ddd5;">
+          <span class="cover-title">Circe</span>
+          <span class="cover-author">Madeline Miller</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">The Truths We Hold</span>
-          <span class="spine-author">Harris</span>
+        <div class="book-cover" style="background:#d5cfc5;color:#3a3f52;">
+          <span class="cover-title">The Truths We Hold</span>
+          <span class="cover-author">Kamala Harris</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">107 Days</span>
-          <span class="spine-author">Harris</span>
+        <div class="book-cover" style="background:#8b9bb0;color:#1e2433;">
+          <span class="cover-title">107 Days</span>
+          <span class="cover-author">Kamala Harris</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">A House in Fez</span>
-          <span class="spine-author">Clarke</span>
+        <div class="book-cover" style="background:#b8a088;color:#2e2218;">
+          <span class="cover-title">A House in Fez</span>
+          <span class="cover-author">Suzanna Clarke</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">De la Terre à la Lune</span>
-          <span class="spine-author">Verne</span>
+        <div class="book-cover" style="background:#4a5e4a;color:#d4ddd0;">
+          <span class="cover-title">De la Terre à la Lune</span>
+          <span class="cover-author">Jules Verne</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">Zero</span>
-          <span class="spine-author">Seife</span>
+        <div class="book-cover" style="background:#2d3142;color:#c8cad4;">
+          <span class="cover-title">Zero</span>
+          <span class="cover-author">Charles Seife</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">Nomi Ali</span>
-          <span class="spine-author">Khan</span>
+        <div class="book-cover" style="background:#a0887a;color:#f0ebe4;">
+          <span class="cover-title">The Miraculous True History of Nomi Ali</span>
+          <span class="cover-author">Uzma Aslam Khan</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">Principles</span>
-          <span class="spine-author">Dalio</span>
+        <div class="book-cover" style="background:#5a6178;color:#e0e1e8;">
+          <span class="cover-title">Principles</span>
+          <span class="cover-author">Ray Dalio</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">The Life We Bury</span>
-          <span class="spine-author">Eskens</span>
+        <div class="book-cover" style="background:#7a8b6e;color:#1e2618;">
+          <span class="cover-title">The Life We Bury</span>
+          <span class="cover-author">Allen Eskens</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">Hum</span>
-          <span class="spine-author">Phillips</span>
+        <div class="book-cover" style="background:#e0d8cc;color:#3a3530;">
+          <span class="cover-title">Hum</span>
+          <span class="cover-author">Helen Phillips</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">Lettres à Yves</span>
-          <span class="spine-author">Bergé</span>
+        <div class="book-cover" style="background:#6b5f7a;color:#ddd6e8;">
+          <span class="cover-title">Lettres à Yves</span>
+          <span class="cover-author">Pierre Bergé</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">Notes from Underground</span>
-          <span class="spine-author">Dostoevsky</span>
+        <div class="book-cover" style="background:#3e3e3e;color:#c8c4be;">
+          <span class="cover-title">Notes from Underground</span>
+          <span class="cover-author">Dostoevsky</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">All the Light We Cannot See</span>
-          <span class="spine-author">Doerr</span>
+        <div class="book-cover" style="background:#8a7e6a;color:#f0ece4;">
+          <span class="cover-title">All the Light We Cannot See</span>
+          <span class="cover-author">Anthony Doerr</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">Giovanni's Room</span>
-          <span class="spine-author">Baldwin</span>
+        <div class="book-cover" style="background:#4a6fa5;color:#e0e8f0;">
+          <span class="cover-title">Giovanni's Room</span>
+          <span class="cover-author">James Baldwin</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">The Emperor of Gladness</span>
-          <span class="spine-author">Vuong</span>
-          <span class="spine-tag">to read</span>
+        <div class="book-cover" style="background:#c4b8a0;color:#2e2a22;">
+          <span class="cover-tag">next</span>
+          <span class="cover-title">The Emperor of Gladness</span>
+          <span class="cover-author">Ocean Vuong</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">Co-Intelligence</span>
-          <span class="spine-author">Mollick</span>
-          <span class="spine-tag">to read</span>
+        <div class="book-cover" style="background:#5e7080;color:#dce2e8;">
+          <span class="cover-tag">next</span>
+          <span class="cover-title">Co-Intelligence</span>
+          <span class="cover-author">Ethan Mollick</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">Bonjour Tristesse</span>
-          <span class="spine-author">Sagan</span>
-          <span class="spine-tag">to read</span>
+        <div class="book-cover" style="background:#c9a0a0;color:#3a2020;">
+          <span class="cover-tag">next</span>
+          <span class="cover-title">Bonjour Tristesse</span>
+          <span class="cover-author">Françoise Sagan</span>
         </div>
-        <div class="book-spine">
-          <span class="spine-title">Classification Struggles</span>
-          <span class="spine-author">Bourdieu</span>
-          <span class="spine-tag">to read</span>
+        <div class="book-cover" style="background:#7c839a;color:#e8e8f0;">
+          <span class="cover-tag">next</span>
+          <span class="cover-title">Classification Struggles</span>
+          <span class="cover-author">Pierre Bourdieu</span>
         </div>
       </div>
     </div>
-    <div class="shelf-edge"></div>
     <p class="visual-note">A partial list. Always looking for recommendations.</p>
   </section>
 
@@ -572,37 +567,21 @@
   </div>
 
   <script>
-    // Gentle drag-to-scroll for the book shelf
+    // Drag-to-scroll for the book shelf
     (function() {
-      var wrapper = document.querySelector('.reading-shelf-wrapper');
-      var shelf = document.getElementById('bookShelf');
-      if (!wrapper || !shelf) return;
-
-      var isDown = false, startX, scrollLeft;
-
-      wrapper.addEventListener('mousedown', function(e) {
-        isDown = true;
-        wrapper.style.cursor = 'grabbing';
-        startX = e.pageX - wrapper.offsetLeft;
-        scrollLeft = wrapper.scrollLeft;
+      var w = document.getElementById('shelfWrapper');
+      if (!w) return;
+      var isDown = false, startX, sl;
+      w.addEventListener('mousedown', function(e) {
+        isDown = true; startX = e.pageX - w.offsetLeft; sl = w.scrollLeft;
       });
-      wrapper.addEventListener('mouseleave', function() { isDown = false; wrapper.style.cursor = ''; });
-      wrapper.addEventListener('mouseup', function() { isDown = false; wrapper.style.cursor = ''; });
-      wrapper.addEventListener('mousemove', function(e) {
+      w.addEventListener('mouseleave', function() { isDown = false; });
+      w.addEventListener('mouseup', function() { isDown = false; });
+      w.addEventListener('mousemove', function(e) {
         if (!isDown) return;
         e.preventDefault();
-        var x = e.pageX - wrapper.offsetLeft;
-        wrapper.scrollLeft = scrollLeft - (x - startX) * 0.8;
+        w.scrollLeft = sl - (e.pageX - w.offsetLeft - startX);
       });
-
-      // Enable native horizontal scroll
-      wrapper.style.overflowX = 'auto';
-      wrapper.style.scrollbarWidth = 'none'; // Firefox
-      wrapper.style.msOverflowStyle = 'none'; // IE
-      // Hide scrollbar for webkit
-      var style = document.createElement('style');
-      style.textContent = '.reading-shelf-wrapper::-webkit-scrollbar { display: none; }';
-      document.head.appendChild(style);
     })();
   </script>
 
