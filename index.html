@@ -341,12 +341,12 @@
 
   <div class="hero">
     <h1>Abhinandan<br>Dubey</h1>
-    <p class="tagline">graphs, language models, and the occasional painting</p>
+    <p class="tagline">on the gap between what an AI says and what it does. where mechanistic interpretability meets the red team.</p>
   </div>
 
   <section id="about" class="about">
     <div class="section-label">About</div>
-    <p>Hello from New York. I like building things, looking at paintings, and reading books I'll never finish. I studied computer science, spent time in computer vision research, and ended up working on AI and security at <a href="https://aws.amazon.com/">Amazon Web Services</a>, where I think about graphs, language models, and how to make cloud security less noisy.</p>
+    <p>Hello from New York. I like building things, looking at paintings, and reading books I'll never finish. I studied computer science, spent time in computer vision research, and ended up working on AI security at <a href="https://aws.amazon.com/">Amazon Web Services</a>, where I think about adversarial machine learning, threat detection, and how to make AI systems harder to fool.</p>
     <p>Outside of work I build whatever catches my attention. Lately that's been an AI wardrobe app, a tool that harvests art from museum APIs, and a <a href="https://abhinandandubey.github.io">blog</a> I write when something is worth writing about. I've been studying French for a few years now, and I read less than I probably should.</p>
   </section>
 
@@ -663,6 +663,15 @@
     </div>
   </div>
 
+  <!-- Pollen drift canvas — Carrier Frères / Provençal light -->
+  <canvas id="pollenCanvas" style="
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 1;
+  "></canvas>
+
   <script>
     // Drag-to-scroll for the book shelf
     (function() {
@@ -679,6 +688,108 @@
         e.preventDefault();
         w.scrollLeft = sl - (e.pageX - w.offsetLeft - startX);
       });
+    })();
+
+    // Pollen / dust-mote drift animation
+    (function() {
+      var canvas = document.getElementById('pollenCanvas');
+      var ctx = canvas.getContext('2d');
+      var W, H, dpr;
+      var particles = [];
+      var COUNT = 55;
+
+      // Palette — warm Provençal tones that read against #f0eeeb
+      var COLORS = [
+        [168, 148, 118], // warm umber
+        [155, 138, 110], // dark sand
+        [178, 155, 122], // terracotta-sand
+        [145, 130, 105], // stone
+        [160, 140, 108], // amber-grey
+        [172, 152, 125], // chamois foncé
+      ];
+
+      function resize() {
+        dpr = window.devicePixelRatio || 1;
+        W = window.innerWidth;
+        H = window.innerHeight;
+        canvas.width  = W * dpr;
+        canvas.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function randBetween(a, b) { return a + Math.random() * (b - a); }
+
+      function makeParticle(spawnAtTop) {
+        var col = COLORS[Math.floor(Math.random() * COLORS.length)];
+        // Each particle is a tiny ellipse — some almost circular, some slightly elongated
+        var rx = randBetween(0.6, 2.0);
+        var ry = randBetween(0.5, 1.4);
+        return {
+          x:        randBetween(0, W),
+          y:        spawnAtTop ? randBetween(-20, 0) : randBetween(0, H),
+          vx:       randBetween(-0.08, 0.08),   // very slight horizontal drift
+          vy:       randBetween(0.18, 0.52),     // unhurried fall
+          rx:       rx,
+          ry:       ry,
+          rot:      randBetween(0, Math.PI),
+          rotSpeed: randBetween(-0.003, 0.003),
+          phase:    randBetween(0, Math.PI * 2), // sine-wave x wobble phase
+          freq:     randBetween(0.003, 0.008),   // wobble frequency
+          amp:      randBetween(0.15, 0.55),     // wobble amplitude (pixels/frame)
+          opacity:  randBetween(0.18, 0.45),
+          r: col[0], g: col[1], b: col[2],
+          t: 0,
+        };
+      }
+
+      function init() {
+        resize();
+        particles = [];
+        for (var i = 0; i < COUNT; i++) {
+          particles.push(makeParticle(false));
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        for (var i = 0; i < particles.length; i++) {
+          var p = particles[i];
+          p.t += 1;
+          // Sine wave horizontal wander — gives that lazy Mediterranean drift
+          p.x  += p.vx + Math.sin(p.phase + p.t * p.freq) * p.amp;
+          p.y  += p.vy;
+          p.rot += p.rotSpeed;
+
+          // Recycle when out of view
+          if (p.y > H + 10 || p.x < -10 || p.x > W + 10) {
+            particles[i] = makeParticle(true);
+            continue;
+          }
+
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot);
+          ctx.beginPath();
+          ctx.ellipse(0, 0, p.rx, p.ry, 0, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + p.r + ',' + p.g + ',' + p.b + ',' + p.opacity + ')';
+          ctx.fill();
+          ctx.restore();
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', function() {
+        resize();
+        // nudge out-of-bounds particles back
+        particles.forEach(function(p) {
+          if (p.x > W) p.x = W * Math.random();
+        });
+      });
+
+      init();
+      draw();
     })();
   </script>
 

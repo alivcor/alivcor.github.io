@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Display Mockups</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'SabonLTStd', 'Sabon LT Pro', Georgia, serif;
+      color: #2d3142;
+      background: #f0eeeb;
+      -webkit-font-smoothing: antialiased;
+      padding: 3rem;
+    }
+    h1 { font-size: 2.5rem; font-weight: 400; margin-bottom: 0.5rem; }
+    .page-sub {
+      font-family: 'Inter', sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.15em; text-transform: uppercase; color: #7c839a;
+      margin-bottom: 4rem;
+    }
+    a { color: #4a6fa5; text-decoration: none; border-bottom: 1px solid rgba(74,111,165,0.3); }
+    a:hover { border-color: #4a6fa5; }
+
+    .mockup-section {
+      margin-bottom: 6rem; padding-bottom: 6rem;
+      border-bottom: 1px solid rgba(74,111,165,0.12);
+    }
+    .mockup-section:last-child { border-bottom: none; }
+    .mockup-label {
+      font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #4a6fa5;
+      margin-bottom: 0.4rem;
+    }
+    .mockup-title { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.5rem; }
+    .mockup-desc {
+      font-size: 1rem; color: #5a6178; font-style: italic;
+      margin-bottom: 2.5rem; max-width: 600px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       A. ACCORDION (current, for comparison)
+       ═══════════════════════════════════════════════════ */
+    .a-list { max-width: 760px; counter-reset: ap; }
+    .a-row { border-bottom: 1px solid rgba(74,111,165,0.12); counter-increment: ap; }
+    .a-row:last-child { border-bottom: none; }
+    .a-head { display: flex; align-items: baseline; padding: 1.15rem 0; }
+    .a-head::before {
+      content: counter(ap, decimal-leading-zero);
+      font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 200;
+      color: rgba(74,111,165,0.15); min-width: 3.2rem; line-height: 1;
+    }
+    .a-head .a-name { font-size: 1.3rem; font-weight: 400; flex: 1; }
+    .a-head .a-tag {
+      font-family: 'Inter', sans-serif; font-size: 0.58rem; font-weight: 400;
+      letter-spacing: 0.12em; text-transform: uppercase; color: #7c839a; margin-left: 1.5rem;
+    }
+    .a-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.35s ease; opacity: 0; }
+    .a-row:hover .a-body { max-height: 8rem; opacity: 1; }
+    .a-body p { font-size: 1.05rem; line-height: 1.7; color: #5a6178; padding: 0 0 1.2rem 3.2rem; max-width: 600px; }
+
+    /* ═══════════════════════════════════════════════════
+       B. STACKED CARDS with side reveal
+       ═══════════════════════════════════════════════════ */
+    .b-list { max-width: 760px; }
+    .b-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid rgba(74,111,165,0.1);
+      padding: 1.5rem 0;
+      gap: 2rem;
+    }
+    .b-card:last-child { border-bottom: none; }
+    .b-left .b-name { font-size: 1.4rem; font-weight: 400; margin-bottom: 0.3rem; }
+    .b-left .b-tag {
+      font-family: 'Inter', sans-serif; font-size: 0.55rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: #7c839a;
+    }
+    .b-right {
+      opacity: 0; transform: translateX(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .b-card:hover .b-right { opacity: 1; transform: translateX(0); }
+    .b-right p { font-size: 1rem; line-height: 1.7; color: #5a6178; }
+
+    /* ═══════════════════════════════════════════════════
+       C. GALLIMARD BROADSHEET (parchment panel)
+       ═══════════════════════════════════════════════════ */
+    .c-folio {
+      max-width: 780px; background: #f5e6d0;
+      border: 1.5px solid #3a3a3a; position: relative;
+      padding: 3rem 2.8rem 2.5rem;
+    }
+    .c-folio::before {
+      content: ''; position: absolute;
+      top: 6px; right: 6px; bottom: 6px; left: 6px;
+      border: 1.5px solid #b5342e; pointer-events: none;
+    }
+    .c-folio::after {
+      content: ''; position: absolute;
+      top: 10px; right: 10px; bottom: 10px; left: 10px;
+      border: 0.75px solid #b5342e; pointer-events: none;
+    }
+    .c-inner { position: relative; z-index: 1; columns: 2; column-gap: 2.5rem; }
+    .c-entry { break-inside: avoid; margin-bottom: 1.8rem; }
+    .c-entry .c-name { font-size: 1.1rem; font-weight: 400; color: #b5342e; margin-bottom: 0.15rem; }
+    .c-entry .c-name a { color: #b5342e; border: none; }
+    .c-entry .c-tag {
+      font-family: 'Inter', sans-serif; font-size: 0.48rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: #8a7b6a;
+      margin-bottom: 0.3rem;
+    }
+    .c-entry .c-desc { font-size: 0.92rem; line-height: 1.6; color: #4a3f32; }
+
+    /* ═══════════════════════════════════════════════════
+       D. TICKER / MARQUEE with expand
+       ═══════════════════════════════════════════════════ */
+    .d-wrap { max-width: 760px; overflow: hidden; position: relative; }
+    .d-track {
+      display: flex; gap: 3rem; padding: 1rem 0;
+      animation: d-scroll 30s linear infinite;
+      width: max-content;
+    }
+    .d-track:hover { animation-play-state: paused; }
+    @keyframes d-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .d-item {
+      font-size: 1.4rem; font-weight: 400; white-space: nowrap;
+      color: #2d3142; cursor: pointer; position: relative;
+      transition: color 0.3s ease;
+      flex-shrink: 0;
+    }
+    .d-item:hover { color: #4a6fa5; }
+    .d-item .d-dot {
+      display: inline-block; width: 4px; height: 4px;
+      background: rgba(74,111,165,0.3); border-radius: 50%;
+      margin: 0 0 0.2rem 0; vertical-align: middle;
+    }
+    .d-expand {
+      max-width: 760px; margin-top: 1rem;
+      padding: 1.5rem 0; border-top: 1px solid rgba(74,111,165,0.12);
+      display: none;
+    }
+    .d-expand.active { display: block; }
+    .d-expand .d-exp-name { font-size: 1.3rem; margin-bottom: 0.2rem; }
+    .d-expand .d-exp-tag {
+      font-family: 'Inter', sans-serif; font-size: 0.55rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: #7c839a;
+      margin-bottom: 0.5rem;
+    }
+    .d-expand p { font-size: 1.05rem; line-height: 1.7; color: #5a6178; max-width: 600px; }
+
+    /* ═══════════════════════════════════════════════════
+       E. PROSE FLOW (continuous paragraph)
+       ═══════════════════════════════════════════════════ */
+    .e-prose { max-width: 680px; font-size: 1.2rem; line-height: 2; color: #3a3f52; }
+    .e-prose .e-name { font-weight: 500; }
+    .e-prose .e-name a { color: #2d3142; border-bottom: 1px solid rgba(74,111,165,0.25); }
+    .e-prose .e-name a:hover { color: #4a6fa5; border-color: #4a6fa5; }
+    .e-prose .e-sep { color: #b5342e; margin: 0 0.3rem; font-size: 0.9rem; }
+    .e-prose .e-tag {
+      font-family: 'Inter', sans-serif; font-size: 0.55rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: #7c839a;
+      vertical-align: 0.15em;
+    }
+    .e-tip {
+      visibility: hidden; opacity: 0;
+      position: absolute; bottom: calc(100% + 8px); left: 50%;
+      transform: translateX(-50%);
+      background: #2d3142; color: #f0eeeb;
+      font-size: 0.82rem; font-style: italic; line-height: 1.5;
+      padding: 0.7rem 1rem; max-width: 280px; width: max-content;
+      pointer-events: none; transition: opacity 0.25s ease, visibility 0.25s ease;
+      z-index: 10;
+    }
+    .e-tip::after {
+      content: ''; position: absolute; top: 100%; left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent; border-top-color: #2d3142;
+    }
+    .e-name { position: relative; display: inline; }
+    .e-name:hover .e-tip { visibility: visible; opacity: 1; }
+  </style>
+</head>
+<body>
+
+<h1>Project Display Mockups</h1>
+<p class="page-sub">Five layout options for the projects section. Same data, different presentations.</p>
+
